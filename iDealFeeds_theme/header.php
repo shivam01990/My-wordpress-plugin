@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="cleartype" content="on" />
-  <meta name="google-site-verification" content="Vuy0QzHKZk6tdj9_rapg_VtXhm2rSL7mIMJxjZ0DbX8"/>
+  <link rel="shortcut icon" href="favicon.ico" />
   <meta name="description" content="Get the latest Voucher Codes &amp; Coupon Codes for December 2015. Compare and Save" />
   <meta name="keywords" content="Voucher codes, vouchers, coupon codes, coupons, discount codes, discounts, deals, sale, offers, savings, cash back, retail, fashion, travel, Singapore" />
   <meta name="Culture" content="en-in" />
@@ -14,7 +14,8 @@
   <!-- Bootstrap core CSS -->
   
   <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/styles/bootstrap.min.css" rel="stylesheet" />
-  <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/styles/style.css" rel="stylesheet" />
+  <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/styles/iDealfeeds.css" rel="stylesheet" />
+  <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/style.css" rel="stylesheet" />
   <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/styles/hover.css" rel="stylesheet" />
   <link href="http://fonts.googleapis.com/css?family=Titillium+Web:400,600,700" rel="stylesheet" type="text/css" />
   <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/styles/owl.carousel.css" rel="stylesheet">
@@ -35,7 +36,15 @@
           <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-              <h1 class="logo"><a href="/">voucher<span>codes</span> <small>Singapore</small></a></h1>
+              <h1 class="logo" style="background: url(<?php if(has_site_icon()){ echo  get_site_icon_url( null, 100 ) ;}else{ echo esc_url( get_template_directory_uri() ).'/images/logo.png';} ?>) no-repeat left;"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?>
+               <small>
+                <?php
+               $description = get_bloginfo( 'description', 'display' );
+               if ( $description || is_customize_preview() ) : 
+                echo $description; 
+              endif;
+               ?>
+              </small></a></h1>       
             </div>
           </div>
           <div class="collapse navbar-collapse">

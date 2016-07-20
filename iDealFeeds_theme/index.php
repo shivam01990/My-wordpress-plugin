@@ -15,10 +15,18 @@
  */
   include_once('functions.php');
   get_header(); ?>
-	
+	   
     <div class="home-content-container">
       <div class="container clearfix">
         <div class="row">
+
+          <?php 
+           if(is_front_page())
+           {
+
+            echo " Yes its Home";            
+           }
+          ?>
           <div class="col-sm-12 col-md-8">
             <?php
 
@@ -37,16 +45,20 @@
             ?>  
           </div>
           <div class="col-md-4  sidebar">
+            <div id="sidebar-right-1">
              <?php
              if(is_active_sidebar('sidebar-right-1')){
               dynamic_sidebar('sidebar-right-1');
              }
-             ?>   
+             ?> 
+             </div> 
+             <div id="sidebar-right-2"> 
              <?php
              if(is_active_sidebar('sidebar-right-2')){
               dynamic_sidebar('sidebar-right-2');
              }
-             ?>                
+             ?>  
+             </div>              
           </div>        
           </div>
         </div>
