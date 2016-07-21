@@ -62,6 +62,21 @@ include('Common_Admin.php');
     <strong>Premium Merchant</strong>
     <div class="well">[premium_merchant] </div>
   </div>
+   <div class="col-sm-3">
+    <strong>Home Premium Merchant</strong>
+    <div class="well">[home_premium_merchant] </div>
+  </div>
+  <div class="col-sm-3">
+    <strong>Top Exclusive Offers</strong>
+    <div class="well">[top_exclusive_offers] </div>
+  </div>
+</div>
+
+<div class="col-sm-12">  
+  <div class="col-sm-3">
+    <strong>Top Expiring Offers</strong>
+    <div class="well">[top_expiring_offers] </div>
+  </div>  
 </div>
 
 

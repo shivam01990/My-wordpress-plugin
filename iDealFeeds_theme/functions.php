@@ -1,7 +1,6 @@
 <?php 
 add_filter('widget_text', 'do_shortcode');
 
-
 if (isset($_GET['activated']) && is_admin()){
 
         $new_page_title = 'Codes';
@@ -83,13 +82,21 @@ if (isset($_GET['activated']) && is_admin()){
 register_sidebar( array(
  'name' => 'Sidebar Right 1',
  'id' => 'sidebar-right-1',
- 'description' => 'Appears in right side bar'
+ 'description' => 'Appears in right side bar', 
+ 'before_widget' => '<div class="block">',
+ 'after_widget'  => '</div>',
+ 'before_title'  => '<h4 >',
+ 'after_title'   => '</h4>' ,
  ) );
 
 register_sidebar( array(
  'name' => 'Sidebar Right 2',
  'id' => 'sidebar-right-2',
- 'description' => 'Appears in right side bar'
+ 'description' => 'Appears in right side bar',
+ 'before_widget' => '<div class="block">',
+ 'after_widget'  => '</div>',
+ 'before_title'  => '<h4 >',
+ 'after_title'   => '</h4>' ,
  ) );
 
 /* 

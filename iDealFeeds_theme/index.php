@@ -15,18 +15,24 @@
  */
   include_once('functions.php');
   get_header(); ?>
-	   
+	<div id="devoicetype"></div>
+    
+      <?php 
+           if(is_front_page())
+           { ?>
+	     <div class="home-search">
+		  <div class="container">
+           <h2>Find Exclusive Voucher Codes and Coupons</h2>
+            <p class="hidden-xs">Get the latest Voucher Codes, Discounts and Coupons</p>
+		  </div>
+			 <?php echo do_shortcode('[home_premium_merchant]');     ?>
+		 </div>
+          <?php          
+           }
+         ?>	 
     <div class="home-content-container">
       <div class="container clearfix">
-        <div class="row">
-
-          <?php 
-           if(is_front_page())
-           {
-
-            echo " Yes its Home";            
-           }
-          ?>
+        <div class="row">         
           <div class="col-sm-12 col-md-8">
             <?php
 
@@ -35,7 +41,7 @@
             $title=get_the_title( $post_id );
             $content=get_the_content( $post_id );
             //echo' <div id="offerarea">';
-            echo'<p class="title">'.$title.'</p>';
+            //echo'<p class="title">'.$title.'</p>';
             echo'<p class="content">'.apply_filters('the_content',$content).'</p>';
             //echo'</div>';
             endwhile;
@@ -45,20 +51,9 @@
             ?>  
           </div>
           <div class="col-md-4  sidebar">
-            <div id="sidebar-right-1">
-             <?php
-             if(is_active_sidebar('sidebar-right-1')){
-              dynamic_sidebar('sidebar-right-1');
-             }
-             ?> 
-             </div> 
-             <div id="sidebar-right-2"> 
-             <?php
-             if(is_active_sidebar('sidebar-right-2')){
-              dynamic_sidebar('sidebar-right-2');
-             }
-             ?>  
-             </div>              
+		      <div class="">
+            <?php get_sidebar(); ?>              
+            </div>			 
           </div>        
           </div>
         </div>
