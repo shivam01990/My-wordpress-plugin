@@ -55,14 +55,7 @@
                     <li><a href="/help">Help/FAQs</a></li>
                     <li><a href="/all-shops">A to Z</a></li>
                     <li><a href="javascript:void(0);">Sign in</a></li>
-                    <li><a href="javascript:void(0);">Sign up</a></li>
-                    <li class="dropdown"><a data-toggle="dropdown"  class="active-country sg" href="javascript:void(0);"><span class="caret"></span></a>
-                      <ul role="menu" class="dropdown-menu">
-                        <li><a href="http://www.vouchercodes.sg" class="singa">Singapore</a></li>
-                        <li><a href="http://www.vouchercodes.my" class="mala">Malaysia</a></li>
-                        <li><a href="http://www.vouchercodes.ph" class="ph">Philippines</a></li>
-                      </ul>
-                    </li>
+                    <li><a href="javascript:void(0);">Sign up</a></li>                    
                   </ul>
                 </div>
               </div>
@@ -75,9 +68,8 @@
                       <input type="text" class="form-control"  placeholder="Type in a Store e.g. Zalora, Redmart"></div><button type="submit" class="btn btn-search">SEARCH</button>  
                     </div> 
                   </div>
-                  <ul class="nav mega navbar-nav  float-right">
-                    <li class="active"><a href="top-50-vouchers.html">TOP 50</a></li>
-                    <li><a href="restaurant-vouchers.html">Restaurant</a></li>
+                  <ul class="nav mega navbar-nav  float-right">                    
+                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>/stores">All Stores</a></li>
                     <li class="dropdown yamm-fw"><a href="#" class="all-category-link" data-toggle="dropdown">All Categories <span class="caret"></span></a><!--Category-->
                       <div class="mega-content">
                         <div class="container">

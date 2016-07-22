@@ -73,8 +73,14 @@
         return  $rType;
        
      }
-
      add_shortcode('top_expiring_offers', 'iDealFeeds_top_expiring_offers_shortcode');
+
+     function iDealFeeds_merchant_shortcode(){
+        $rType = requireToVar('Merchant.php');      
+        return  $rType;
+       
+     }
+     add_shortcode('merchant', 'iDealFeeds_merchant_shortcode');
 
 
     //**********End short Codes Definition***********//

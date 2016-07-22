@@ -25,8 +25,51 @@ if (isset($_GET['activated']) && is_admin()){
         }
 
 
+        
+        $new_page_title = 'Stores';
+        $new_page_content = '[merchant_all]';
+        $new_page_template = ''; //ex. template-custom.php. Leave blank if you don't want a custom page template.
+
+        //don't change the code bellow, unless you know what you're doing
+
+        $page_check = get_page_by_title($new_page_title);
+        $new_page = array(
+                'post_type' => 'page',
+                'post_title' => $new_page_title,
+                'post_content' => $new_page_content,
+                'post_status' => 'publish',
+                'post_author' => 1,
+        );
+        if(!isset($page_check->ID)){
+                $new_page_id = wp_insert_post($new_page);
+                if(!empty($new_page_template)){
+                        update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+                }
+        }
+
         $new_page_title = 'Offers';
         $new_page_content = '[offers]';
+        $new_page_template = ''; //ex. template-custom.php. Leave blank if you don't want a custom page template.
+
+        //don't change the code bellow, unless you know what you're doing
+
+        $page_check = get_page_by_title($new_page_title);
+        $new_page = array(
+                'post_type' => 'page',
+                'post_title' => $new_page_title,
+                'post_content' => $new_page_content,
+                'post_status' => 'publish',
+                'post_author' => 1,
+        );
+        if(!isset($page_check->ID)){
+                $new_page_id = wp_insert_post($new_page);
+                if(!empty($new_page_template)){
+                        update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+                }
+       }
+
+        $new_page_title = 'Merchant';
+        $new_page_content = '[merchant]';
         $new_page_template = ''; //ex. template-custom.php. Leave blank if you don't want a custom page template.
 
         //don't change the code bellow, unless you know what you're doing
@@ -98,6 +141,25 @@ register_sidebar( array(
  'before_title'  => '<h4 >',
  'after_title'   => '</h4>' ,
  ) );
+
+
+function custom_rewrite_rule() {
+    add_rewrite_rule('^stores/([^/]*)/?','index.php?pagename=merchant&merchant=$matches[1]','top'); 
+    //add_rewrite_rule('^stores/([^/]*)/([^/]*)/?','index.php?pagename=stores&food=$matches[1]&variety=$matches[2]','top');  
+  }
+  add_action('init', 'custom_rewrite_rule', 10, 0);
+
+
+add_filter( 'query_vars', 'custom_query_vars' );
+function custom_query_vars( $query_vars ){
+    $query_vars[] = 'merchant';   
+    $query_vars[] = 'search';
+    return $query_vars;
+}
+
+
+
+
 
 /* 
 function prefix_custom_site_icon_size( $sizes ) {
