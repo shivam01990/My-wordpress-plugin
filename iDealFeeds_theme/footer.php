@@ -74,6 +74,7 @@
  
   <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/owl.carousel.js"></script> 
   <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.18/dist/jquery.flip.min.js"></script> 
+  <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/common.js"></script>
   <script>
   $(document).ready(function() {
 

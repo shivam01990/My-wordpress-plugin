@@ -82,6 +82,13 @@
      }
      add_shortcode('merchant', 'iDealFeeds_merchant_shortcode');
 
+    function iDealFeeds_category_shortcode(){
+        $rType = requireToVar('Category.php');      
+        return  $rType;
+       
+     }
+     add_shortcode('category', 'iDealFeeds_category_shortcode');
+
 
     //**********End short Codes Definition***********//
       

@@ -34,7 +34,7 @@
 
         ?>
         <div class="top-offer-block hvr-reveal">
-           <h5><a href='/StreetDeal'><?php echo $MerchantName ?></a> <span class="exclusive-tag">Exclusive</span></h5>
+           <h5><a href='<?php echo esc_url(home_url( '/' )).'stores/'.urlencode($MerchantName).'/' ?>'><?php echo $MerchantName ?></a> <span class="exclusive-tag">Exclusive</span></h5>
            <p class="off moretext" textlenght="200"><?php echo GetDescription($DealDescription,250); ?></p>
          </div>
         <?php

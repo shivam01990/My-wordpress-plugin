@@ -42,8 +42,8 @@
 						<div class="marchant-logo"> <img src="<?php echo $MerchantLogoURL ?>" alt="SmartBuyGlasses" class="img-responsive" /> </div>
 						<p class="offer-title"><?php echo $DealTitle ?></p>
 						<h5><?php echo GetDescription($DealDescription,60); ?> </h5>
-						<a href="#" class="btn show-coupon hvr-icon-wobble-horizontal">Show Coupon</a>
-						<p><a href="/SmartBuyGlasses" class="merchant-link">See all <?php echo $MerchantName ?> Coupons</a></p>
+						<a onclick="ShowCode(<?php echo $DealId;?>,'<?php echo $DeepLinkUrl;?>')" href="javascript:void(0);" class="btn show-coupon hvr-icon-wobble-horizontal">Show Coupon</a>
+						<p><a href="<?php echo esc_url(home_url( '/' )).'stores/'.urlencode($MerchantName).'/' ?>" class="merchant-link">See all <?php echo $MerchantName ?> Coupons</a></p>
 					</div>
 					<?php }
 					else{ ?>
@@ -51,8 +51,8 @@
 						<div class="marchant-logo"> <img src="<?php echo $MerchantLogoURL ?>" alt="SmartBuyGlasses" class="img-responsive" /> </div>
 						<p class="offer-title"><?php echo $DealTitle ?></p>
 						<h5><?php echo GetDescription($DealDescription,60); ?></h5>
-						<a href="#" class="btn activate-deal hvr-icon-wobble-horizontal">Activate deal</a>
-						<p><a href="/SmartBuyGlasses" class="merchant-link">See all <?php echo $MerchantName ?> Coupons</a></p>
+						<a target="_blank" href="<?php echo $DeepLinkUrl;?>"  class="btn activate-deal hvr-icon-wobble-horizontal">Activate deal</a>
+						<p><a href="<?php echo esc_url(home_url( '/' )).'stores/'.urlencode($MerchantName).'/' ?>" class="merchant-link">See all <?php echo $MerchantName ?> Coupons</a></p>
 					</div>
 					<?php } ?>
 				</div>

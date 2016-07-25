@@ -3,8 +3,8 @@ add_filter('widget_text', 'do_shortcode');
 
 if (isset($_GET['activated']) && is_admin()){
 
-        $new_page_title = 'Codes';
-        $new_page_content = '[codes]';
+        $new_page_title = 'Category';
+        $new_page_content = '[category]';
         $new_page_template = ''; //ex. template-custom.php. Leave blank if you don't want a custom page template.
 
         //don't change the code bellow, unless you know what you're doing
@@ -144,8 +144,14 @@ register_sidebar( array(
 
 
 function custom_rewrite_rule() {
+    add_rewrite_rule('^stores/([^/]*)/([0-9]+)/?','index.php?pagename=merchant&merchant=$matches[1]&pageno=$matches[2]','top'); 
     add_rewrite_rule('^stores/([^/]*)/?','index.php?pagename=merchant&merchant=$matches[1]','top'); 
-    //add_rewrite_rule('^stores/([^/]*)/([^/]*)/?','index.php?pagename=stores&food=$matches[1]&variety=$matches[2]','top');  
+
+    add_rewrite_rule('^category/([^/]*)/([^/]*)/([0-9]+)/?','index.php?pagename=category&category=$matches[1]&sub_category=$matches[2]&pageno=$matches[3]','top');
+    add_rewrite_rule('^category/([^/]*)/([0-9]+)/?','index.php?pagename=category&category=$matches[1]&pageno=$matches[2]','top');  
+    add_rewrite_rule('^category/([^/]*)/([^/]*)/?','index.php?pagename=category&category=$matches[1]&sub_category=$matches[2]','top');     
+    add_rewrite_rule('^category/([^/]*)/?','index.php?pagename=category&category=$matches[1]','top'); 
+    
   }
   add_action('init', 'custom_rewrite_rule', 10, 0);
 
@@ -153,7 +159,9 @@ function custom_rewrite_rule() {
 add_filter( 'query_vars', 'custom_query_vars' );
 function custom_query_vars( $query_vars ){
     $query_vars[] = 'merchant';   
-    $query_vars[] = 'search';
+    $query_vars[] = 'pageno';
+    $query_vars[] = 'category';
+    $query_vars[] = 'sub_category'; 
     return $query_vars;
 }
 

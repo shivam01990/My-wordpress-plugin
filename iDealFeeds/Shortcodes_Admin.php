@@ -17,19 +17,11 @@ include('Common_Admin.php');
      <strong>Home</strong>
      <div class="well">[homepage]</div>
    </div>  
-
+  
    <div class="col-sm-3">
-    <strong>Codes</strong>
-    <div class="well">[codes]</div>
-  </div>
-  <div class="col-sm-3">
-    <strong>Offers</strong>
-    <div class="well">[offers]</div>
-  </div>
-  <div class="col-sm-3">
-    <strong>Category</strong>
-    <div class="well">[category]</div>
-  </div>  
+    <strong>Categories</strong>
+    <div class="well">[categories]</div>
+   </div>  
 
 </div>
 

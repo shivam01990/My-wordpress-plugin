@@ -42,7 +42,7 @@
             $content=get_the_content( $post_id );
             //echo' <div id="offerarea">';
             //echo'<p class="title">'.$title.'</p>';
-            echo'<p class="content">'.apply_filters('the_content',$content).'</p>';
+            echo apply_filters('the_content',$content);
             //echo'</div>';
             endwhile;
 

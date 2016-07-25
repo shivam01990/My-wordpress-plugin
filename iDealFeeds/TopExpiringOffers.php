@@ -34,7 +34,7 @@
 
         ?>
         <div class="ending-soon  clearfix">
-         <a href='/Light+in+The+Box' class="hvr-reveal"> 
+         <a href='<?php echo esc_url(home_url( '/' )).'stores/'.urlencode($MerchantName).'/' ?>' class="hvr-reveal"> 
          <img src="<?php echo $MerchantLogoURL ?>"  class="logo-ending-offers img-responsive" alt=""> 
          <span class="info"><span class="off-per"><?php echo $DealTitle ?></span> <span class="coupon-num"><?php echo GetDescription($DealDescription,60); ?></span> </span>
          </a>
