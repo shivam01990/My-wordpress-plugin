@@ -2,13 +2,14 @@
 <div class="row">
 
 	<?php
-	error_reporting(0);
+	//error_reporting(0);	
 	try
 	{
 		include('Config.php');
 		include('Helper.php');
-
+        
 		$apikey = get_option('idealfeeds_apikey', $apikey);
+        $OfferID=$_REQUEST['O'];
 
 		$ch = curl_init();
 		$timeout = 0; // set to zero for no timeout
@@ -34,6 +35,7 @@
 				$FeaturedDeal =$item->FeaturedDeal;
 				$StartDate = $item->StartDate;
 				$EndDate  = $item->EndDate;
+				$CouponCode = $item->CouponCode;
 
 				?>
 				<div class="col-sm-4">
@@ -42,7 +44,19 @@
 						<div class="marchant-logo"> <img src="<?php echo $MerchantLogoURL ?>" alt="SmartBuyGlasses" class="img-responsive" /> </div>
 						<p class="offer-title"><?php echo $DealTitle ?></p>
 						<h5><?php echo GetDescription($DealDescription,60); ?> </h5>
-						<a onclick="ShowCode(<?php echo $DealId;?>,'<?php echo $DeepLinkUrl;?>')" href="javascript:void(0);" class="btn show-coupon hvr-icon-wobble-horizontal">Show Coupon</a>
+						<a onclick="ShowCode(<?php echo $DealId;?>,'<?php echo $DeepLinkUrl;?>','<?php echo esc_url( home_url( '/' ) );?>')" href="javascript:void(0);" class="btn show-coupon hvr-icon-wobble-horizontal">
+						<?php 
+						if ($OfferID==$DealId)
+						{
+                             echo $CouponCode;
+						}
+						else
+						{
+							echo "Show Coupon";
+						}
+						?>
+							
+						</a>
 						<p><a href="<?php echo esc_url(home_url( '/' )).'stores/'.urlencode($MerchantName).'/' ?>" class="merchant-link">See all <?php echo $MerchantName ?> Coupons</a></p>
 					</div>
 					<?php }

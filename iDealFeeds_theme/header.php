@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Exclusive Voucher Codes in Singapore for December 2015</title>
+  <title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="cleartype" content="on" />
-  <link rel="shortcut icon" href="favicon.ico" />
-  <meta name="description" content="Get the latest Voucher Codes &amp; Coupon Codes for December 2015. Compare and Save" />
+  <meta name="description" content="<?php bloginfo('description'); ?>" />
   <meta name="keywords" content="Voucher codes, vouchers, coupon codes, coupons, discount codes, discounts, deals, sale, offers, savings, cash back, retail, fashion, travel, Singapore" />
   <meta name="Culture" content="en-in" />
   <meta name="DisplayName" content="VoucherCodes" />
@@ -36,7 +35,7 @@
           <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-              <h1 class="logo" style="background: url(<?php if(has_site_icon()){ echo  get_site_icon_url( null, 100 ) ;}else{ echo esc_url( get_template_directory_uri() ).'/images/logo.png';} ?>) no-repeat left;"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?>
+              <h1 class="logo" style="background: url(<?php try {if(has_site_icon()){ echo  get_site_icon_url( null, 100 ) ;}else{ echo esc_url( get_template_directory_uri() ).'/images/logo.png';} } catch(Exception $e){echo esc_url( get_template_directory_uri() ).'/images/logo.png';}?>) no-repeat left;"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?>
                <small>
                 <?php
                $description = get_bloginfo( 'description', 'display' );
@@ -72,94 +71,7 @@
                     <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>/stores">All Stores</a></li>
                     <li class="dropdown yamm-fw"><a href="#" class="all-category-link" data-toggle="dropdown">All Categories <span class="caret"></span></a><!--Category-->
                       <div class="mega-content">
-                        <div class="container">
-                          <div class="cat-menu">
-                            <div id="Header1_DivCategories" class="clearfix">
-                              <div class="mnav-col">
-                                <ul>
-                                  <li class="cat"><a href='/cats/Baby+-+Child'>Baby & Child</a></li>
-                                  <li><a href='/cats/Baby+-+Child/Kids+Clothes'>Kids Clothes</a></li>
-                                  <li><a href='/cats/Baby+-+Child/Toys+-+Games'>Toys & Games</a></li>
-                                </ul>
-                                <ul>
-                                  <li class="cat"><a href='/cats/Computer+-+Technology'>Computer & Technology</a></li>
-                                  <li><a href='/cats/Computer+-+Technology/Cameras+-+Accessories'>Cameras & Accessories</a></li>
-                                  <li><a href='/cats/Computer+-+Technology/Computers'>Computers</a></li>
-                                  <li><a href='/cats/Computer+-+Technology/Electronics+-+Appliances'>Electronics & Appliances</a></li>
-                                  <li><a href='/cats/Computer+-+Technology/Laptops'>Laptops</a></li>
-                                  <li><a href='/cats/Computer+-+Technology/Mobiles'>Mobiles</a></li>
-                                  <li><a href='/cats/Computer+-+Technology/Sound+-+Vision'>Sound & Vision</a></li>
-                                  <li><a href='/cats/Computer+-+Technology/Storage'>Storage</a></li>
-                                  <li><a href='/cats/Computer+-+Technology/Tablets'>Tablets</a></li>
-                                </ul>
-                              </div>
-                              <div class="mnav-col">
-                                <ul>
-                                  <li class="cat"><a href='/cats/Fashion'>Fashion</a></li>
-                                  <li><a href='/cats/Fashion/Mens+Fashion'>Mens Fashion</a></li>
-                                  <li><a href='/cats/Fashion/Womens+Fashion'>Womens Fashion</a></li>
-                                </ul>
-                                <ul>
-                                  <li class="cat"><a href='/cats/Food+-+Drink'>Food & Drink</a></li>
-                                  <li><a href='/cats/Food+-+Drink/Beer+Wine+-+Spirits'>Beer Wine & Spirits</a></li>
-                                </ul>
-                                <ul>
-                                  <li class="cat"><a href='/cats/Going+Out'>Going Out</a></li>
-                                  <li><a href='/cats/Going+Out/Tickets'>Tickets</a></li>
-                                </ul>
-                              </div>
-                              <div class="mnav-col">
-                                <ul>
-                                  <li class="cat"><a href='/cats/Gifts+-+Occassions'>Gifts & Occassions</a></li>
-                                  <li><a href='/cats/Gifts+-+Occassions/Flowers'>Flowers</a></li>
-                                  <li><a href='/cats/Gifts+-+Occassions/Gifts+-+Gadgets'>Gifts & Gadgets</a></li>
-                                  <li><a href='/cats/Gifts+-+Occassions/Special+Occassions'>Special Occassions</a></li>
-                                </ul>
-                                <ul>
-                                  <li class="cat"><a href='/cats/Health+-+Beauty'>Health & Beauty</a></li>
-                                  <li><a href='/cats/Health+-+Beauty/Fitness+-+Nutrition'>Fitness & Nutrition</a></li>
-                                  <li><a href='/cats/Health+-+Beauty/Fragrance+-+Perfume'>Fragrance & Perfume</a></li>
-                                  <li><a href='/cats/Health+-+Beauty/Hair+-+Makeup'>Hair & Makeup</a></li>
-                                  <li><a href='/cats/Health+-+Beauty/Opticians'>Opticians</a></li>
-                                </ul>
-                              </div>
-                              <div class="mnav-col">
-                                <ul>
-                                  <li class="cat"><a href='/cats/Home+-+Garden'>Home & Garden</a></li>
-                                  <li><a href='/cats/Home+-+Garden/Beds'>Beds</a></li>
-                                  <li><a href='/cats/Home+-+Garden/DIY+-+Tools'>DIY & Tools</a></li>
-                                  <li><a href='/cats/Home+-+Garden/Furniture'>Furniture</a></li>
-                                  <li><a href='/cats/Home+-+Garden/Home+Accessories'>Home Accessories</a></li>
-                                  <li><a href='/cats/Home+-+Garden/Home+Appliances'>Home Appliances</a></li>
-                                  <li><a href='/cats/Home+-+Garden/Home+Decorative'>Home Decorative</a></li>
-                                  <li><a href='/cats/Home+-+Garden/Household+Products'>Household Products</a></li>
-                                  <li><a href='/cats/Home+-+Garden/Kitchen'>Kitchen</a></li>
-                                </ul>
-                                <ul>
-                                  <li class="cat"><a href='/cats/Sports,+Fitness+-+Outdoors'>Sports, Fitness & Outdoors</a></li>
-                                  <li><a href='/cats/Sports,+Fitness+-+Outdoors/Cycling'>Cycling</a></li>
-                                  <li><a href='/cats/Sports,+Fitness+-+Outdoors/Outdoors'>Outdoors</a></li>
-                                  <li><a href='/cats/Sports,+Fitness+-+Outdoors/Sports+Equipment'>Sports Equipment</a></li>
-                                  <li><a href='/cats/Sports,+Fitness+-+Outdoors/Sportswear'>Sportswear</a></li>
-                                </ul>
-                              </div>
-                              <div class="mnav-col">
-                                <ul>
-                                  <li class="cat"><a href='/cats/Travel' >Travel</a></li>
-                                  <li><a href='/cats/Travel/Flights'>Flights</a></li>
-                                  <li><a href='/cats/Travel/Holidays'>Holidays</a></li>
-                                  <li><a href='/cats/Travel/Hotels'>Hotels</a></li>
-                                  <li><a href='/cats/Travel/Luggage+-+Bags'>Luggage & Bags</a></li>
-                                </ul>
-                                <ul>
-                                  <li class="cat"><a href='/cats/Daily+Deals'>More Categories</a></li>
-                                  <li><a href='/cats/Daily+Deals'>Daily Deals</a></li>
-                                  <li><a href='/cats/Shopping'>Shopping</a></li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <?php echo do_shortcode('[category_menu]');     ?>
                       </div>
                       <!--End Category--></li>
                     </ul>
@@ -169,3 +81,6 @@
             </div>
             <!-- /.nav-collapse --></div>
           </header>
+
+
+

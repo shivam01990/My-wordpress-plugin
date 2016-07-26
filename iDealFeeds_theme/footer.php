@@ -63,6 +63,7 @@
   ================================================== --><!-- Placed at the end of the document so the pages load faster -->
   <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/jquery-3.1.0.min.js"></script>
   <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/bootstrap.min.js"></script> 
+  <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/common.js"></script>
   <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/responsive-tabs.js"></script> 
 
   <script>$('.activate-deal').tooltip('hide')</script> 
@@ -74,7 +75,7 @@
  
   <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/owl.carousel.js"></script> 
   <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.18/dist/jquery.flip.min.js"></script> 
-  <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/common.js"></script>
+  
   <script>
   $(document).ready(function() {
 

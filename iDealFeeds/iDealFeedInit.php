@@ -84,10 +84,28 @@
 
     function iDealFeeds_category_shortcode(){
         $rType = requireToVar('Category.php');      
-        return  $rType;
-       
+        return  $rType;       
      }
      add_shortcode('category', 'iDealFeeds_category_shortcode');
+
+     function iDealFeeds_merchantheader_shortcode(){
+        $rType = requireToVar('MerchantHeader.php');      
+        return  $rType;       
+     }
+     add_shortcode('merchant_header', 'iDealFeeds_merchantheader_shortcode');
+
+    function iDealFeeds_category_header_shortcode(){
+        $rType = requireToVar('CategoryHeader.php');      
+        return  $rType;       
+     }
+     add_shortcode('category_header', 'iDealFeeds_category_header_shortcode');
+
+    function iDealFeeds_category_menu_shortcode(){
+        $rType = requireToVar('CategoryMenu.php');      
+        return  $rType;       
+     }
+     add_shortcode('category_menu', 'iDealFeeds_category_menu_shortcode');
+
 
 
     //**********End short Codes Definition***********//
