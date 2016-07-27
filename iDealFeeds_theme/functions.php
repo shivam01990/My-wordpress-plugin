@@ -151,6 +151,9 @@ function custom_rewrite_rule() {
     add_rewrite_rule('^category/([^/]*)/([0-9]+)/?','index.php?pagename=category&category=$matches[1]&pageno=$matches[2]','top');  
     add_rewrite_rule('^category/([^/]*)/([^/]*)/?','index.php?pagename=category&category=$matches[1]&sub_category=$matches[2]','top');     
     add_rewrite_rule('^category/([^/]*)/?','index.php?pagename=category&category=$matches[1]','top'); 
+
+    add_rewrite_rule('^search/([^/]*)/([0-9]+)/?','index.php?pagename=search&search=$matches[1]&pageno=$matches[2]','top'); 
+    add_rewrite_rule('^search/([^/]*)/?','index.php?pagename=offers&search=$matches[1]','top'); 
     
   }
   add_action('init', 'custom_rewrite_rule', 10, 0);
@@ -162,6 +165,7 @@ function custom_query_vars( $query_vars ){
     $query_vars[] = 'pageno';
     $query_vars[] = 'category';
     $query_vars[] = 'sub_category'; 
+    $query_vars[] = 'search'; 
     return $query_vars;
 }
 

@@ -31,10 +31,10 @@
           {
             $flagChange=false;
             echo "<ul>";
-            echo '<li class="cat"><a href="/cats/Baby+-+Child">'.$CategoryName.'</a></li>';
-            foreach (explode('|', $SubCategories) as $p)
+            echo '<li class="cat"><a href="'.esc_url(home_url( '/' )).'category/'.urlencode(trim($CategoryName)).'">'.$CategoryName.'</a></li>';
+            foreach (explode('|', $SubCategories) as $sub)
             {
-             echo '<li><a href="/cats/Baby+-+Child">'.$p.'</a></li>';
+             echo '<li><a href="'.esc_url(home_url( '/' )).'category/'.urlencode(trim($CategoryName)).'/'.urlencode(trim($sub)).'">'.$sub.'</a></li>';
             
             }
             echo "</ul>";
@@ -48,6 +48,11 @@
             $j=0;
           }
 
+      }
+
+      if($j>0)
+      {
+        echo "</div>";
       }
       
      ?> 

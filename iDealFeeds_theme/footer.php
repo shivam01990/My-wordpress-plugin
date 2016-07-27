@@ -59,6 +59,9 @@
   </div>
 </div>
 </div>
+  <script type="text/javascript">
+  var root ='<?php echo esc_url(home_url()); ?>'
+  </script>
   <!--Js Section--><!-- Bootstrap core JavaScript
   ================================================== --><!-- Placed at the end of the document so the pages load faster -->
   <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/jquery-3.1.0.min.js"></script>

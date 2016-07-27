@@ -64,7 +64,7 @@
                   <div class="search-block-header">
                     <div class="form-inline "><div class="form-group">
 
-                      <input type="text" class="form-control"  placeholder="Type in a Store e.g. Zalora, Redmart"></div><button type="submit" class="btn btn-search">SEARCH</button>  
+                      <input type="text" id='txtiDealFeedsSearch' class="form-control" value="<?php echo trim(urldecode(get_query_var('search'))); ?>"  placeholder="Search"></div><button id="btnSearch" type="submit" class="btn btn-search" onclick="return SearchText();">SEARCH</button>  
                     </div> 
                   </div>
                   <ul class="nav mega navbar-nav  float-right">                    

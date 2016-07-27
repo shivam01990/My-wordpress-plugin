@@ -25,7 +25,8 @@ $OfferID=$_REQUEST['O'];
 
 		$ch = curl_init();
 		$timeout = 0; // set to zero for no timeout
-		curl_setopt ($ch, CURLOPT_URL, "$serviceUrl$apikey/GetDeals/xml?MerchantName=$merchant&PageNo=$page_no&PageSize=10&SortBy=Start");
+		$tempserviceURL= $serviceUrl.$apikey.'/GetDeals/xml?MerchantName='.urlencode($merchant).'&PageNo='.$page_no.'&PageSize=10&SortBy=STARTDATE-DESC';
+		curl_setopt ($ch, CURLOPT_URL, $tempserviceURL);
 		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
 		$xml_raw  = curl_exec($ch);
@@ -109,7 +110,7 @@ $OfferID=$_REQUEST['O'];
 		}
 		catch(Exception $e)
 		{
-			echo 'No data is available.';
+			//echo 'No data is available.';
 		}
 ?>
 </div>
@@ -120,7 +121,7 @@ $total_records=$TotalRecords;
 $redirect_link=esc_url(home_url( '/' )).'stores/'.urlencode($merchant).'/';
 if($total_records==0)
 {
-	echo "<p class='text-center'><h2>More Offers Comming Soon.</h2><p>";
+	echo "<div class='text-center'><h2>No Offer found.</h2></div>";
 }
 
 include('Paging.php');

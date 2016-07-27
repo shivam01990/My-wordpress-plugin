@@ -1,4 +1,5 @@
-  <div class="top10-coupon">     
+  <div class="top10-coupon">   
+
   <?php
   try
   {
@@ -9,7 +10,7 @@
 
     $ch = curl_init();
     $timeout = 0; // set to zero for no timeout
-    curl_setopt ($ch, CURLOPT_URL, "$serviceUrl$apikey/GetDeals/xml?PageNo=1&PageSize=10&SortBy=StartDate&Exclusive=true");
+    curl_setopt ($ch, CURLOPT_URL, "$serviceUrl$apikey/GetDeals/xml?PageNo=1&PageSize=10&SortBy=STARTDATE-DESC&Exclusive=true");
     curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
     $xml_raw  = curl_exec($ch);

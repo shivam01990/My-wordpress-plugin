@@ -1,14 +1,6 @@
 <?php
 error_reporting(0);
-$category=trim(urldecode(get_query_var('category')));
-$sub_category=trim(urldecode(get_query_var('sub_category')));
-
-$category_param=$category;
-if($sub_category!="")
-{
-	$category_param=$category.'|'.$sub_category;
-}
-
+$search=trim(urldecode(get_query_var('search')));
 $page_no=urldecode(get_query_var('pageno'));
 
 if($page_no=='')
@@ -19,30 +11,59 @@ $TotalRecords=0;
 $OfferID=$_REQUEST['O'];
 
 $curr_link='';
-if($sub_category=='')
-{
-  $curr_link=esc_url(home_url( '/' )).'category/'.urlencode($category).'/';
+$curr_link=esc_url(home_url( '/' )).'search/'.urlencode($search).'/';
+
+
+include('Config.php');
+include('Helper.php');
+
+$apikey = get_option('idealfeeds_apikey', $apikey);
+
+$ch = curl_init();
+$timeout = 0; // set to zero for no timeout
+$tempserviceURL= $serviceUrl.$apikey.'/SeachRoute/xml?SearchText='.urlencode($search);
+curl_setopt ($ch, CURLOPT_URL, $tempserviceURL);
+curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+$xml_raw  = curl_exec($ch);
+curl_close($ch);
+$xml = simplexml_load_string($xml_raw);
+$SearchType=$xml->SearchType;  
+$SearchText = $xml->SearchText;
+//echo $SearchType;
+if($SearchType=='1')
+{	
+   $merchanturl = esc_url(home_url()).'/stores/'.urlencode($SearchText).'/';  
+   echo '<script type="text/javascript">location.href = "'.$merchanturl .'";</script>';
+   exit();
 }
-else
-{
-  $curr_link=esc_url(home_url( '/' )).'category/'.urlencode($category).'/'.urlencode($sub_category).'/';
+
+if($SearchType=='2')
+{	
+   $tempcatpath='';
+    foreach (explode('>', $SearchText) as $sub)
+    {
+    	$tempcatpath=$tempcatpath.'/'.urlencode(trim($sub));
+    }
+   $categoryurl = esc_url(home_url()).'/category/'.$tempcatpath;  
+   echo '<script type="text/javascript">location.href = "'.$categoryurl.'";</script>';
+   exit();
 }
+
+
 ?> 
 
 
 <div class="right-col marchant-offer">
 
 <?php
+if($SearchType!='4')
+{
 	try
-	{
-		include('Config.php');
-		include('Helper.php');
-
-		$apikey = get_option('idealfeeds_apikey', $apikey);
-
+	{		
 		$ch = curl_init();
 		$timeout = 0; // set to zero for no timeout
-		$tempserviceURL= $serviceUrl.$apikey.'/GetDeals/xml?Category='.urlencode($category_param).'&PageNo='.$page_no.'&PageSize=10&SortBy=STARTDATE-DESC';
+		$tempserviceURL= $serviceUrl.$apikey.'/GetDeals/xml?SearchText='.urlencode($search).'&PageNo='.$page_no.'&PageSize=10&SortBy=STARTDATE-DESC';
 		curl_setopt ($ch, CURLOPT_URL, $tempserviceURL);
 		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
@@ -138,6 +159,7 @@ else
 		{
 			//echo 'No data is available.';
 		}
+}
 ?>
 </div>
 

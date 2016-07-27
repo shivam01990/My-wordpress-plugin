@@ -54,14 +54,22 @@
      add_shortcode('home_premium_merchant', 'iDealFeeds_home_premium_merchant_shortcode');
 
      function iDealFeeds_homepage_shortcode(){
+         $rType =  wp_cache_get( 'homepage' );
+         if ( false === $rType  ) {
          $rType = requireToVar('HomePage.php');
+         wp_cache_set( 'homepage', $rType );
+         }
          return $rType;
      }
 
      add_shortcode('homepage', 'iDealFeeds_homepage_shortcode');
 
      function iDealFeeds_top_exclusive_offers_shortcode(){
-        $rType = requireToVar('TopExclusiveOffers.php');      
+        $rType =  wp_cache_get('top_exclusive_offers'); 
+        if ( false === $rType  ) {   
+        $rType = requireToVar('TopExclusiveOffers.php');  
+        wp_cache_set( 'top_exclusive_offers', $rType );    
+        }    
         return  $rType;
        
      }
@@ -69,7 +77,11 @@
      add_shortcode('top_exclusive_offers', 'iDealFeeds_top_exclusive_offers_shortcode');
 
     function iDealFeeds_top_expiring_offers_shortcode(){
-        $rType = requireToVar('TopExpiringOffers.php');      
+        $rType =  wp_cache_get('top_expiring_offers');
+         if ( false === $rType  ) {
+           $rType = requireToVar('TopExpiringOffers.php'); 
+           wp_cache_set( 'top_expiring_offers', $rType );     
+         }
         return  $rType;
        
      }
@@ -101,11 +113,21 @@
      add_shortcode('category_header', 'iDealFeeds_category_header_shortcode');
 
     function iDealFeeds_category_menu_shortcode(){
-        $rType = requireToVar('CategoryMenu.php');      
+       $rType =  wp_cache_get( 'category_menu' );
+       if ( false === $rType  ) {
+         $rType = requireToVar('CategoryMenu.php'); 
+         wp_cache_set( 'category_menu', $rType );
+       }    
+
         return  $rType;       
      }
      add_shortcode('category_menu', 'iDealFeeds_category_menu_shortcode');
 
+     function iDealFeeds_offers_shortcode(){
+        $rType = requireToVar('Search.php');      
+        return  $rType;       
+     }
+     add_shortcode('offers', 'iDealFeeds_offers_shortcode');
 
 
     //**********End short Codes Definition***********//
