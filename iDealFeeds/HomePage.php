@@ -57,7 +57,7 @@
 						?>
 							
 						</a>
-						<p><a href="<?php echo esc_url(home_url( '/' )).'stores/'.urlencode($MerchantName).'/' ?>" class="merchant-link">See all <?php echo $MerchantName ?> Coupons</a></p>
+						<p><a href="<?php echo esc_url(home_url( '/' )).'stores/'.EncodeTextForURL($MerchantName).'/' ?>" class="merchant-link">See all <?php echo $MerchantName ?> Coupons</a></p>
 					</div>
 					<?php }
 					else{ ?>
@@ -66,7 +66,7 @@
 						<p class="offer-title"><?php echo $DealTitle ?></p>
 						<h5><?php echo GetDescription($DealDescription,60); ?></h5>
 						<a target="_blank" href="<?php echo $DeepLinkUrl;?>"  class="btn activate-deal hvr-icon-wobble-horizontal">Activate deal</a>
-						<p><a href="<?php echo esc_url(home_url( '/' )).'stores/'.urlencode($MerchantName).'/' ?>" class="merchant-link">See all <?php echo $MerchantName ?> Coupons</a></p>
+						<p><a href="<?php echo esc_url(home_url( '/' )).'stores/'.EncodeTextForURL($MerchantName).'/' ?>" class="merchant-link">See all <?php echo $MerchantName ?> Coupons</a></p>
 					</div>
 					<?php } ?>
 				</div>

@@ -1,7 +1,10 @@
 <?php
-error_reporting(0);
-$category=trim(urldecode(get_query_var('category')));
-$sub_category=trim(urldecode(get_query_var('sub_category')));
+//error_reporting(0);
+include('Config.php');
+include('Helper.php');
+
+$category=trim(DecodeTextForURL(get_query_var('category')));
+$sub_category=trim(DecodeTextForURL(get_query_var('sub_category')));
 
 $category_param=$category;
 if($sub_category!="")
@@ -9,7 +12,7 @@ if($sub_category!="")
 	$category_param=$category.'|'.$sub_category;
 }
 
-$page_no=urldecode(get_query_var('pageno'));
+$page_no=DecodeTextForURL(get_query_var('pageno'));
 
 if($page_no=='')
 {
@@ -21,11 +24,11 @@ $OfferID=$_REQUEST['O'];
 $curr_link='';
 if($sub_category=='')
 {
-  $curr_link=esc_url(home_url( '/' )).'category/'.urlencode($category).'/';
+  $curr_link=esc_url(home_url( '/' )).'category/'.EncodeTextForURL($category).'/';
 }
 else
 {
-  $curr_link=esc_url(home_url( '/' )).'category/'.urlencode($category).'/'.urlencode($sub_category).'/';
+  $curr_link=esc_url(home_url( '/' )).'category/'.EncodeTextForURL($category).'/'.EncodeTextForURL($sub_category).'/';
 }
 ?> 
 
@@ -35,14 +38,12 @@ else
 <?php
 	try
 	{
-		include('Config.php');
-		include('Helper.php');
 
 		$apikey = get_option('idealfeeds_apikey', $apikey);
 
 		$ch = curl_init();
 		$timeout = 0; // set to zero for no timeout
-		$tempserviceURL= $serviceUrl.$apikey.'/GetDeals/xml?Category='.urlencode($category_param).'&PageNo='.$page_no.'&PageSize=10&SortBy=STARTDATE-DESC';
+		$tempserviceURL= $serviceUrl.$apikey.'/GetDeals/xml?Category='.EncodeTextForURL($category_param).'&PageNo='.$page_no.'&PageSize=10&SortBy=STARTDATE-DESC';
 		curl_setopt ($ch, CURLOPT_URL, $tempserviceURL);
 		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
@@ -107,7 +108,7 @@ else
 			                </li>
 			              </ul>			             
 			              <p class="offer-added"><span>
-			              	<a href="<?php echo esc_url(home_url( '/' )).'stores/'.urlencode($MerchantName).'/' ?>">View all <?php echo $MerchantName ?> Voucher Codes</a>
+			              	<a href="<?php echo esc_url(home_url( '/' )).'stores/'.EncodeTextForURL($MerchantName).'/' ?>">View all <?php echo $MerchantName ?> Voucher Codes</a>
 			              	Added: <?php echo date('d/m/Y',$starttime); ?> </span><span>Expires: <?php echo date('d/m/Y',$endtime); ?></span></p>
 			            </div>
 			          </div>
@@ -125,7 +126,7 @@ else
 			               
 			              </ul>
 			              <p class="offer-added"><span>
-			              	<a href="<?php echo esc_url(home_url( '/' )).'stores/'.urlencode($MerchantName).'/' ?>">View all <?php echo $MerchantName ?> Voucher Codes</a>
+			              	<a href="<?php echo esc_url(home_url( '/' )).'stores/'.EncodeTextForURL($MerchantName).'/' ?>">View all <?php echo $MerchantName ?> Voucher Codes</a>
 			              	Added: <?php echo date('d/m/Y',$starttime); ?></span><span>Expires: <?php echo date('d/m/Y',$endtime); ?></span></p>
 			            </div>
 			        </div>

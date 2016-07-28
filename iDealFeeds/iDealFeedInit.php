@@ -29,12 +29,7 @@
 
     //**********Short Codes Definition***********//
 
-    function iDealFeeds_merchant_logos_shortcode(){        
-        $rType = requireToVar('Merchant_Logos.php');
-        return $rType;
-     }
-     add_shortcode('merchant_logos', 'iDealFeeds_merchant_logos_shortcode');
-
+   
      function iDealFeeds_merchant_all_shortcode(){        
         $rType = requireToVar('Merchant_All.php');
         return $rType;
@@ -63,6 +58,18 @@
      }
 
      add_shortcode('homepage', 'iDealFeeds_homepage_shortcode');
+
+       function iDealFeeds_exclusive_offers_shortcode(){
+        $rType =  wp_cache_get('exclusive_offers'); 
+        if ( false === $rType  ) {   
+        $rType = requireToVar('ExclusiveOffers.php');  
+        wp_cache_set( 'exclusive_offers', $rType );    
+        }    
+        return  $rType;
+       
+     }
+
+     add_shortcode('exclusive_offers', 'iDealFeeds_exclusive_offers_shortcode');
 
      function iDealFeeds_top_exclusive_offers_shortcode(){
         $rType =  wp_cache_get('top_exclusive_offers'); 
@@ -112,6 +119,13 @@
      }
      add_shortcode('category_header', 'iDealFeeds_category_header_shortcode');
 
+    function iDealFeeds_common_header_shortcode(){
+        $rType = requireToVar('CommonHeader.php');      
+        return  $rType;       
+     }
+     add_shortcode('common_header', 'iDealFeeds_common_header_shortcode');
+
+
     function iDealFeeds_category_menu_shortcode(){
        $rType =  wp_cache_get( 'category_menu' );
        if ( false === $rType  ) {
@@ -124,7 +138,7 @@
      add_shortcode('category_menu', 'iDealFeeds_category_menu_shortcode');
 
      function iDealFeeds_offers_shortcode(){
-        $rType = requireToVar('Search.php');      
+        $rType = requireToVar('SearchOffers.php');      
         return  $rType;       
      }
      add_shortcode('offers', 'iDealFeeds_offers_shortcode');

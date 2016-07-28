@@ -24,8 +24,16 @@ if(is_page('home'))
         <div class="container">
          <h2>Find Exclusive Voucher Codes and Coupons</h2>
          <p class="hidden-xs">Get the latest Voucher Codes, Discounts and Coupons</p>
-       </div>
-       <?php echo do_shortcode('[home_premium_merchant]');     ?>
+         <div class="home-search-form clearfix">
+          <div role="form" class="form-inline">
+            <div class="form-group">              
+              <input  id='txtiDealFeedsSearch' placeholder="Type in a Store e.g. foodpanda, Expedia" id="txtSearchBox" class="form-control">
+            </div>
+            <button class="btn" id="btnSearch" onclick="return SearchText();" type="button">Search</button>
+          </div>
+        </div>
+        <?php echo do_shortcode('[home_premium_merchant]');     ?>
+        </div>
       </div>
 <?php          
 }
@@ -35,25 +43,7 @@ if(is_page('home'))
 
 <div class="home-content-container">
   <div class="container clearfix">
-    <?php 
-    if(is_page('merchant'))
-     { ?>
-   
-       <?php echo do_shortcode('[merchant_header]');     ?>
-      
-     <?php          
-      }
-     ?>  
-
-      <?php 
-      if(is_page('category'))
-       { ?>  
-       
-             <?php echo do_shortcode('[category_header]');  ?>     
-
-      <?php          
-      }
-      ?>   
+      <?php echo do_shortcode('[common_header]');?>  
     <div class="row">
       <div class="col-sm-12 col-md-8">
         <?php

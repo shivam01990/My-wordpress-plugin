@@ -13,7 +13,6 @@
   <!-- Bootstrap core CSS -->
   
   <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/styles/bootstrap.min.css" rel="stylesheet" />
-  <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/styles/iDealfeeds.css" rel="stylesheet" />
   <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/style.css" rel="stylesheet" />
   <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/styles/hover.css" rel="stylesheet" />
   <link href="http://fonts.googleapis.com/css?family=Titillium+Web:400,600,700" rel="stylesheet" type="text/css" />
@@ -47,25 +46,21 @@
             </div>
           </div>
           <div class="collapse navbar-collapse">
-            <div class="row">
-              <div class="top-nav">
-                <div class="container">
-                  <ul class="nav navbar-nav float-right">                 
-                    <li><a href="/help">Help/FAQs</a></li>
-                    <li><a href="/all-shops">A to Z</a></li>
-                    <li><a href="javascript:void(0);">Sign in</a></li>
-                    <li><a href="javascript:void(0);">Sign up</a></li>                    
-                  </ul>
-                </div>
-              </div>
+            <div class="row">              
               <div class="header">
                 <div class="container">
-
                   <div class="search-block-header">
-                    <div class="form-inline "><div class="form-group">
-
-                      <input type="text" id='txtiDealFeedsSearch' class="form-control" value="<?php echo trim(urldecode(get_query_var('search'))); ?>"  placeholder="Search"></div><button id="btnSearch" type="submit" class="btn btn-search" onclick="return SearchText();">SEARCH</button>  
+                    <?php 
+                      if(!is_page('home'))
+                       { ?>
+                    <div class="form-inline ">                      
+                      <div class="form-group">                      
+                      <input type="text" id='txtiDealFeedsSearch' class="form-control" value="<?php echo trim(apply_filters('DecodeTextForURL', get_query_var('search'))); ?>"  placeholder="Type in a Store e.g. foodpanda, Expedia">
+                      </div>
+                      <button id="btnSearch" type="submit" class="btn btn-search" onclick="return SearchText();">SEARCH</button>                     
                     </div> 
+                     <?php               
+                      } ?>
                   </div>
                   <ul class="nav mega navbar-nav  float-right">                    
                     <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>/stores">All Stores</a></li>
@@ -83,4 +78,4 @@
           </header>
 
 
-
+     

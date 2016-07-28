@@ -1,46 +1,25 @@
 <div class="footer">
   <div class="container">
     <div class="clearfix">
-      <div class="footer-block">
-        <h5>About</h5>
-        <ul>
-          <li><a href="/aboutus">About</a> </li>
-        </ul>
-      </div>
-      <div class="footer-block">
-        <h5>Vouchers</h5>
-        <ul>
-          <li><a href="/top-20-codes">Top 20 Codes</a> </li>
-          <li><a href="/all-shops">All Stores</a></li>
-          <li><a href="/top-sales">Top Sales</a></li>
-        </ul>
-      </div>
-      <div class="footer-block">
-        <h5>Popular Vouchers</h5>
-        <ul>
-          <li><a href="/restaurant-vouchers">Restaurant Vouchers</a></li>
-          <li><a href="/smart-deals">Smart Deals</a></li>
-        </ul>
-      </div>
-      <div class="footer-block">
-        <h5>Legal</h5>
-        <ul>
-          <li><a href="/about-cookies">About Cookies</a> </li>
-          <li><a href="/terms-conditions">Terms &amp; Conditions</a></li>
-        </ul>
-      </div>
-      <div class="footer-block">
-        <h5>Help</h5>
-        <ul>
-          <li><a href="/contact-us">Contact Us</a></li>
-        </ul>
-        <h5>Social</h5>
-        <ul class="social">
-          <li><a href="https://www.facebook.com/pages/VoucherCodessg/1481121545485362" class="fb">facebook</a></li>
-          <li><a href="https://twitter.com/VoucherCodes_sg" class="twit">twitter</a></li>
-          <li><a href="https://plus.google.com/u/0/b/112160591232679016150/" class="gp">google plus</a></li>
-        </ul>
-      </div>
+       <?php if ( is_active_sidebar( 'footer-menu-1' ) ) : ?>         
+         <?php dynamic_sidebar('footer-menu-1');  ?>            
+       <?php endif; ?>  
+
+       <?php if ( is_active_sidebar( 'footer-menu-2' ) ) : ?>         
+         <?php dynamic_sidebar('footer-menu-2');  ?>            
+      <?php endif; ?>  
+
+       <?php if ( is_active_sidebar( 'footer-menu-3' ) ) : ?>         
+         <?php dynamic_sidebar('footer-menu-3');  ?>            
+      <?php endif; ?>  
+
+      <?php if ( is_active_sidebar( 'footer-menu-4' ) ) : ?>         
+         <?php dynamic_sidebar('footer-menu-4');  ?>            
+      <?php endif; ?>  
+
+      <?php if ( is_active_sidebar( 'footer-menu-5' ) ) : ?>         
+         <?php dynamic_sidebar('footer-menu-5');  ?>            
+      <?php endif; ?>      
     </div>
   </div>
   <div class="users-info">
@@ -55,7 +34,7 @@
     </div>
   </div>
   <div class="copyright">
-    <p>&copy; 2015 VoucherCodes.sg</p>
+    <p>&copy; <?php echo date("Y");?> <?php bloginfo( 'name' ); ?></p>
   </div>
 </div>
 </div>

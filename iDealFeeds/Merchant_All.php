@@ -33,6 +33,7 @@
 <div class="block">
 <?php
  include('Config.php');
+ include('Helper.php');
 
 $apikey = get_option('idealfeeds_apikey', $apikey);
 
@@ -81,166 +82,166 @@ foreach ($xml->Merchants->Merchant as $item) {
 
     if(ctype_digit(strtolower(substr($MerchantName, 0, 1 ))))
     {
-      $digitMerchants =$aMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+      $digitMerchants =$aMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
     if(strtolower(substr($MerchantName, 0, 1 )) === "a")
     {
-      $aMerchants =$aMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+      $aMerchants =$aMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
      if(strtolower(substr($MerchantName, 0, 1 )) === "b")
     {
 
-      $bMerchants =$bMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+      $bMerchants =$bMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
      if(strtolower(substr($MerchantName, 0, 1 )) === "c")
     {
-      $cMerchants =$cMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+      $cMerchants =$cMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
      if(strtolower(substr($MerchantName, 0, 1 )) === "d")
     {
   
-     $dMerchants =$dMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+     $dMerchants =$dMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
      if(strtolower(substr($MerchantName, 0, 1 )) === "e")
     {
      
-      $eMerchants =$eMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+      $eMerchants =$eMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
      if(strtolower(substr($MerchantName, 0, 1 )) === "f")
     {
-      $fMerchants =$fMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+      $fMerchants =$fMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
      if(strtolower(substr($MerchantName, 0, 1 )) === "g")
     {
-   $gMerchants =$gMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $gMerchants =$gMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
      if(strtolower(substr($MerchantName, 0, 1 )) === "h")
     {
-   $hMerchants =$hMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $hMerchants =$hMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
      if(strtolower(substr($MerchantName, 0, 1 )) === "i")
     {
-   $iMerchants =$iMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $iMerchants =$iMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
      if(strtolower(substr($MerchantName, 0, 1 )) === "j")
     {
-   $jMerchants =$jMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $jMerchants =$jMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
      if(strtolower(substr($MerchantName, 0, 1 )) === "k")
     {
-   $kMerchants =$kMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $kMerchants =$kMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
       if(strtolower(substr($MerchantName, 0, 1 )) === "l")
     {
-   $lMerchants =$lMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $lMerchants =$lMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
       if(strtolower(substr($MerchantName, 0, 1 )) === "m")
     {
-   $mMerchants =$mMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $mMerchants =$mMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
       if(strtolower(substr($MerchantName, 0, 1 )) === "n")
     {
-   $nMerchants =$nMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $nMerchants =$nMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
       if(strtolower(substr($MerchantName, 0, 1 )) === "o")
     {
-   $oMerchants =$oaMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $oMerchants =$oaMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
       if(strtolower(substr($MerchantName, 0, 1 )) === "p")
     {
-   $pMerchants =$pMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $pMerchants =$pMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
       if(strtolower(substr($MerchantName, 0, 1 )) === "q")
     {
-   $qMerchants =$qMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $qMerchants =$qMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
       if(strtolower(substr($MerchantName, 0, 1 )) === "r")
     {
-   $rMerchants =$rMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $rMerchants =$rMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
       if(strtolower(substr($MerchantName, 0, 1 )) === "s")
     {
-   $sMerchants =$sMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $sMerchants =$sMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
       if(strtolower(substr($MerchantName, 0, 1 )) === "t")
     {
-   $tMerchants =$tMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $tMerchants =$tMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
       if(strtolower(substr($MerchantName, 0, 1 )) === "u")
     {
-   $uMerchants =$uMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $uMerchants =$uMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
       if(strtolower(substr($MerchantName, 0, 1 )) === "v")
     {
-   $vMerchants =$vMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $vMerchants =$vMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
       if(strtolower(substr($MerchantName, 0, 1 )) === "w")
     {
-   $wMerchants =$wMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $wMerchants =$wMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
       if(strtolower(substr($MerchantName, 0, 1 )) === "x")
     {
-   $xMerchants =$xMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $xMerchants =$xMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
       if(strtolower(substr($MerchantName, 0, 1 )) === "y")
     {
-   $yMerchants =$yMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $yMerchants =$yMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 
       if(strtolower(substr($MerchantName, 0, 1 )) === "z")
     {
-   $zMerchants =$zMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
+   $zMerchants =$zMerchants.'<div class="col-sm-3"> <a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'" class="store-az"> <span class="marchant"><img src="'.$MerchantLogoURL.'" width="130" height="86" alt=""> </span> <span class="mt-name">'.$MerchantName.'</span> </a> </div>';	
 
     }
 }

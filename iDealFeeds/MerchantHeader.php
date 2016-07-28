@@ -1,16 +1,17 @@
 <?php
 //error_reporting(0);
-$merchant=trim(urldecode(get_query_var('merchant')));
+include('Config.php');
+include('Helper.php');
+$merchant=trim(DecodeTextForURL(get_query_var('merchant')));
 ?> 
 
 <?php
- include('Config.php');
 
 $apikey = get_option('idealfeeds_apikey', $apikey);
 
 $ch = curl_init();
 $timeout = 0; // set to zero for no timeout
-$tempserviceURL= $serviceUrl.$apikey.'/GetMerchantDetails/xml?MerchantName='.urlencode($merchant);
+$tempserviceURL= $serviceUrl.$apikey.'/GetMerchantDetails/xml?MerchantName='.EncodeTextForURL($merchant);
 curl_setopt ($ch, CURLOPT_URL, $tempserviceURL);
 curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);

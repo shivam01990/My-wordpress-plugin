@@ -1,7 +1,9 @@
 <?php
-error_reporting(0);
-$search=trim(urldecode(get_query_var('search')));
-$page_no=urldecode(get_query_var('pageno'));
+//error_reporting(0);
+include('Config.php');
+include('Helper.php');
+$search=trim(DecodeTextForURL(get_query_var('search')));
+$page_no=DecodeTextForURL(get_query_var('pageno'));
 
 if($page_no=='')
 {
@@ -11,17 +13,14 @@ $TotalRecords=0;
 $OfferID=$_REQUEST['O'];
 
 $curr_link='';
-$curr_link=esc_url(home_url( '/' )).'search/'.urlencode($search).'/';
+$curr_link=esc_url(home_url( '/' )).'search/'.EncodeTextForURL($search).'/';
 
-
-include('Config.php');
-include('Helper.php');
 
 $apikey = get_option('idealfeeds_apikey', $apikey);
 
 $ch = curl_init();
 $timeout = 0; // set to zero for no timeout
-$tempserviceURL= $serviceUrl.$apikey.'/SeachRoute/xml?SearchText='.urlencode($search);
+$tempserviceURL= $serviceUrl.$apikey.'/SeachRoute/xml?SearchText='.EncodeTextForURL($search);
 curl_setopt ($ch, CURLOPT_URL, $tempserviceURL);
 curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
@@ -33,9 +32,9 @@ $SearchText = $xml->SearchText;
 //echo $SearchType;
 if($SearchType=='1')
 {	
-   $merchanturl = esc_url(home_url()).'/stores/'.urlencode($SearchText).'/';  
+   $merchanturl = esc_url(home_url()).'/stores/'.EncodeTextForURL($SearchText).'/';  
    echo '<script type="text/javascript">location.href = "'.$merchanturl .'";</script>';
-   exit();
+   //exit();
 }
 
 if($SearchType=='2')
@@ -43,11 +42,11 @@ if($SearchType=='2')
    $tempcatpath='';
     foreach (explode('>', $SearchText) as $sub)
     {
-    	$tempcatpath=$tempcatpath.'/'.urlencode(trim($sub));
+    	$tempcatpath=$tempcatpath.'/'.EncodeTextForURL(trim($sub));
     }
    $categoryurl = esc_url(home_url()).'/category/'.$tempcatpath;  
    echo '<script type="text/javascript">location.href = "'.$categoryurl.'";</script>';
-   exit();
+   //exit();
 }
 
 
@@ -63,7 +62,7 @@ if($SearchType!='4')
 	{		
 		$ch = curl_init();
 		$timeout = 0; // set to zero for no timeout
-		$tempserviceURL= $serviceUrl.$apikey.'/GetDeals/xml?SearchText='.urlencode($search).'&PageNo='.$page_no.'&PageSize=10&SortBy=STARTDATE-DESC';
+		$tempserviceURL= $serviceUrl.$apikey.'/GetDeals/xml?SearchText='.EncodeTextForURL($search).'&PageNo='.$page_no.'&PageSize=10&SortBy=STARTDATE-DESC';
 		curl_setopt ($ch, CURLOPT_URL, $tempserviceURL);
 		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
@@ -128,7 +127,7 @@ if($SearchType!='4')
 			                </li>
 			              </ul>			             
 			              <p class="offer-added"><span>
-			              	<a href="<?php echo esc_url(home_url( '/' )).'stores/'.urlencode($MerchantName).'/' ?>">View all <?php echo $MerchantName ?> Voucher Codes</a>
+			              	<a href="<?php echo esc_url(home_url( '/' )).'stores/'.EncodeTextForURL($MerchantName).'/' ?>">View all <?php echo $MerchantName ?> Voucher Codes</a>
 			              	Added: <?php echo date('d/m/Y',$starttime); ?> </span><span>Expires: <?php echo date('d/m/Y',$endtime); ?></span></p>
 			            </div>
 			          </div>
@@ -146,7 +145,7 @@ if($SearchType!='4')
 			               
 			              </ul>
 			              <p class="offer-added"><span>
-			              	<a href="<?php echo esc_url(home_url( '/' )).'stores/'.urlencode($MerchantName).'/' ?>">View all <?php echo $MerchantName ?> Voucher Codes</a>
+			              	<a href="<?php echo esc_url(home_url( '/' )).'stores/'.EncodeTextForURL($MerchantName).'/' ?>">View all <?php echo $MerchantName ?> Voucher Codes</a>
 			              	Added: <?php echo date('d/m/Y',$starttime); ?></span><span>Expires: <?php echo date('d/m/Y',$endtime); ?></span></p>
 			            </div>
 			        </div>

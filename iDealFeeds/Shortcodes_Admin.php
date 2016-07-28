@@ -16,32 +16,15 @@ include('Common_Admin.php');
    <div class="col-sm-3">
      <strong>Home</strong>
      <div class="well">[homepage]</div>
-   </div>  
-  
-   <div class="col-sm-3">
-    <strong>Categories</strong>
-    <div class="well">[categories]</div>
-   </div>  
-
+   </div>   
 </div>
 
-<div class="col-sm-12">  
-  <div class="col-sm-3">
-    <strong>Exclusive Codes</strong>
-    <div class="well">[exclusive_codes]</div>
-  </div>
+<div class="col-sm-12">    
   <div class="col-sm-3">
     <strong>Exclusive Offers</strong>
     <div class="well">[exclusive_offers]</div>
-  </div>
-  <div class="col-sm-3">
-    <strong>Merchant</strong>
-    <div class="well">[merchant]</div>
-  </div>
-  <div class="col-sm-3">
-    <strong>Merchant Logos</strong>
-    <div class="well">[merchant_logos]</div>
-  </div>
+  </div> 
+
 
 </div>
 

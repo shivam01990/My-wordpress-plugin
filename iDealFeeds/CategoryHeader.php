@@ -1,7 +1,9 @@
 <?php
 //error_reporting(0);
-$category=trim(urldecode(get_query_var('category')));
-$sub_category=trim(urldecode(get_query_var('sub_category')));
+include('Config.php');
+include('Helper.php');
+$category=trim(DecodeTextForURL(get_query_var('category')));
+$sub_category=trim(DecodeTextForURL(get_query_var('sub_category')));
 ?> 
 
 <div class="banner-categories">

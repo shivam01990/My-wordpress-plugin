@@ -123,7 +123,7 @@ if (isset($_GET['activated']) && is_admin()){
 
 
 register_sidebar( array(
- 'name' => 'Sidebar Right 1',
+ 'name' => 'Sidebar Right',
  'id' => 'sidebar-right-1',
  'description' => 'Appears in right side bar', 
  'before_widget' => '<div class="block">',
@@ -133,13 +133,53 @@ register_sidebar( array(
  ) );
 
 register_sidebar( array(
- 'name' => 'Sidebar Right 2',
- 'id' => 'sidebar-right-2',
- 'description' => 'Appears in right side bar',
- 'before_widget' => '<div class="block">',
+ 'name' => 'Footer Menu 1',
+ 'id' => 'footer-menu-1',
+ 'description' => 'Add custom menu widgets footer menu',
+ 'before_widget' => '<div class="footer-block">',
  'after_widget'  => '</div>',
- 'before_title'  => '<h4 >',
- 'after_title'   => '</h4>' ,
+ 'before_title'  => '<h5>',
+ 'after_title'   => '</h5>' ,
+ ) );
+
+register_sidebar( array(
+ 'name' => 'Footer Menu 2',
+ 'id' => 'footer-menu-2',
+ 'description' => 'Add custom menu widgets footer menu',
+ 'before_widget' => '<div class="footer-block">',
+ 'after_widget'  => '</div>',
+ 'before_title'  => '<h5>',
+ 'after_title'   => '</h5>' ,
+ ) );
+
+register_sidebar( array(
+ 'name' => 'Footer Menu 3',
+ 'id' => 'footer-menu-3',
+ 'description' => 'Add custom menu widgets footer menu',
+ 'before_widget' => '<div class="footer-block">',
+ 'after_widget'  => '</div>',
+ 'before_title'  => '<h5>',
+ 'after_title'   => '</h5>' ,
+ ) );
+
+register_sidebar( array(
+ 'name' => 'Footer Menu 4',
+ 'id' => 'footer-menu-4',
+ 'description' => 'Add custom menu widgets footer menu',
+ 'before_widget' => '<div class="footer-block">',
+ 'after_widget'  => '</div>',
+ 'before_title'  => '<h5>',
+ 'after_title'   => '</h5>' ,
+ ) );
+
+register_sidebar( array(
+ 'name' => 'Footer Menu 5',
+ 'id' => 'footer-menu-5',
+ 'description' => 'Add custom menu widgets footer menu',
+ 'before_widget' => '<div class="footer-block">',
+ 'after_widget'  => '</div>',
+ 'before_title'  => '<h5>',
+ 'after_title'   => '</h5>' ,
  ) );
 
 
@@ -152,7 +192,7 @@ function custom_rewrite_rule() {
     add_rewrite_rule('^category/([^/]*)/([^/]*)/?','index.php?pagename=category&category=$matches[1]&sub_category=$matches[2]','top');     
     add_rewrite_rule('^category/([^/]*)/?','index.php?pagename=category&category=$matches[1]','top'); 
 
-    add_rewrite_rule('^search/([^/]*)/([0-9]+)/?','index.php?pagename=search&search=$matches[1]&pageno=$matches[2]','top'); 
+    add_rewrite_rule('^search/([^/]*)/([0-9]+)/?','index.php?pagename=offers&search=$matches[1]&pageno=$matches[2]','top'); 
     add_rewrite_rule('^search/([^/]*)/?','index.php?pagename=offers&search=$matches[1]','top'); 
     
   }
@@ -173,4 +213,45 @@ add_action( 'init', function() {
     global $wp_rewrite;
     $wp_rewrite->set_permalink_structure( '/%year%/%monthnum%/%day%/%postname%/' );
 });
+
+
+
+
+function fn_DecodeTextForURL( $StrValue) {
+        $StrValue =urldecode($StrValue);
+        $StrValue=str_replace("§", "&",$StrValue);
+        //$StrValue=str_replace("~-", "^",$StrValue);
+        //$StrValue=str_replace("+", " ",$StrValue);
+        //$StrValue=str_replace("-", "&",$StrValue);
+        //$StrValue=str_replace("^", "-",$StrValue);
+        //$StrValue=str_replace("~", "\"",$StrValue);
+        //$StrValue=str_replace("`", "'",$StrValue);
+        //$StrValue=str_replace("®", ":",$StrValue);
+        //$StrValue=str_replace("†", "'",$StrValue);
+        //$StrValue=str_replace("^", "/",$StrValue);
+        //$StrValue=str_replace("‰", "%",$StrValue);
+        //$StrValue=str_replace("§", "?",$StrValue);
+        return $StrValue;
+}
+
+add_filter( 'DecodeTextForURL', 'fn_DecodeTextForURL', 10, 1 ); // Where $priority is 10, $accepted_args is 2.
+
+
+function fn_EncodeTextForURL( $StrValue) {
+       $StrValue=str_replace("&", "§",$StrValue);
+        //$StrValue=str_replace("&", "-",$StrValue);
+        //$StrValue =str_replace("-", "~-",$StrValue);
+        //$StrValue=str_replace(" ", "+",$StrValue);        
+        //$StrValue=str_replace("\"", "~",$StrValue);
+        //$StrValue=str_replace("'", "†",$StrValue);
+        //$StrValue=str_replace("/", "^",$StrValue);
+        //$StrValue=str_replace(":", "®",$StrValue);
+        //$StrValue=str_replace("%", "‰",$StrValue);
+        //$StrValue=str_replace("?", "§",$StrValue);
+        $StrValue =urlencode($StrValue);
+        return $StrValue;
+}
+
+add_filter( 'EncodeTextForURL', 'fn_EncodeTextForURL', 10, 1 ); // Where $priority is 10, $accepted_args is 2.
+
 ?>

@@ -1,9 +1,11 @@
 <nav class="text-center">
 
 <?php 
+include('Config.php');
+include('Helper.php');
 if($total_records>0)
 {
-$page_no=urldecode(get_query_var('pageno'));
+$page_no=DecodeTextForURL(get_query_var('pageno'));
 if($page_no=='')
 {
 	$page_no=1;   

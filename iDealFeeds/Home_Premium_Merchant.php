@@ -5,6 +5,7 @@
 		try
 		{
 			include('Config.php');
+			include('Helper.php');
 
 			$apikey = get_option('idealfeeds_apikey', $apikey);
 
@@ -22,7 +23,7 @@ foreach ($xml->Merchants->Merchant as $item) {
 
 	$MerchantLogoURL= $item->MerchantLogoURL;
 	$MerchantName =$item->MerchantName;
-	echo '<li class="hvr-float-shadow"><a href="'.esc_url(home_url( "/" )).'stores/'.urlencode($MerchantName).'"><img class="img-responsive" src="'.$MerchantLogoURL.'" alt="'.$MerchantName.'" title="'.$MerchantName.'"/></a></li>';
+	echo '<li class="hvr-float-shadow"><a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'"><img class="img-responsive" src="'.$MerchantLogoURL.'" alt="'.$MerchantName.'" title="'.$MerchantName.'"/></a></li>';
  }
 }
 catch(Exception $e)
