@@ -14,6 +14,10 @@ include('Helper.php');
   {     
     //do nothing its search page
   }
+  else if(is_page('home'))
+  {     
+    //do nothing its search page
+  }
   else
   {
 

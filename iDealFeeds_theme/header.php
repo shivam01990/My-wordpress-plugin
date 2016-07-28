@@ -34,7 +34,7 @@
           <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-              <h1 class="logo" style="background: url(<?php try {if(has_site_icon()){ echo  get_site_icon_url( null, 100 ) ;}else{ echo esc_url( get_template_directory_uri() ).'/images/logo.png';} } catch(Exception $e){echo esc_url( get_template_directory_uri() ).'/images/logo.png';}?>) no-repeat left;"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?>
+              <h1 class="logo" style="background: url(<?php echo apply_filters('iDealfeedsIcon',null); ?>) no-repeat left;"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?>
                <small>
                 <?php
                $description = get_bloginfo( 'description', 'display' );

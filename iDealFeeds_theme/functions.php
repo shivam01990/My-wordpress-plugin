@@ -254,4 +254,35 @@ function fn_EncodeTextForURL( $StrValue) {
 
 add_filter( 'EncodeTextForURL', 'fn_EncodeTextForURL', 10, 1 ); // Where $priority is 10, $accepted_args is 2.
 
+
+
+function GetiDealFeedsIcon()
+{
+    $result_Icon='';
+     try
+     {
+       if(function_exists('has_site_icon'))
+       {
+        if(has_site_icon())
+        {
+         $result_Icon=  get_site_icon_url() ;
+        }
+        else{
+         $result_Icon= esc_url( get_template_directory_uri() ).'/images/logo.png';
+        }
+      }
+      else
+      {
+        $result_Icon= esc_url( get_template_directory_uri() ).'/images/logo.png'; 
+      }
+     }
+     catch(Exception $e)
+     {
+       $result_Icon= esc_url( get_template_directory_uri() ).'/images/logo.png';
+     } 
+      return $result_Icon;    
+}
+
+add_filter( 'iDealfeedsIcon', 'GetiDealFeedsIcon');
+
 ?>
