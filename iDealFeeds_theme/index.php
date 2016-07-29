@@ -38,8 +38,11 @@ if(is_page('home'))
 <?php          
 }
 ?>	
-
-
+<div class="container">
+<?php if ( is_active_sidebar( 'header-sec' ) ) : ?>      
+         <?php dynamic_sidebar('header-sec'); ?>      
+<?php endif; ?>  
+</div>
 
 <div class="home-content-container">
   <div class="container clearfix">
@@ -66,10 +69,15 @@ if(is_page('home'))
         <div class="">
           <?php get_sidebar(); ?>              
         </div>			 
-      </div>        
+      </div> 
+         
     </div>
   </div>
 </div>
-
+ <div class="container">
+      <?php if ( is_active_sidebar( 'footer-sec' ) ) : ?>      
+         <?php dynamic_sidebar('footer-sec'); ?>      
+      <?php endif; ?>   
+      </div> 
 </div>
 <?php get_footer(); ?>

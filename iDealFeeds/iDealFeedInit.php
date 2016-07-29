@@ -142,7 +142,12 @@
         return  $rType;       
      }
      add_shortcode('offers', 'iDealFeeds_offers_shortcode');
-
+    
+     function iDealFeeds_top_categories_shortcode(){
+        $rType = requireToVar('TopCategories.php');      
+        return  $rType;       
+     }
+     add_shortcode('top_categories', 'iDealFeeds_top_categories_shortcode');
 
     //**********End short Codes Definition***********//
       

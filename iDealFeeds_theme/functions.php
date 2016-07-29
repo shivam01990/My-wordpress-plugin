@@ -133,6 +133,26 @@ register_sidebar( array(
  ) );
 
 register_sidebar( array(
+ 'name' => 'Header Ads',
+ 'id' => 'header-sec',
+ 'description' => 'Add Header Ads',
+ 'before_widget' => '<div class="ads-container">',
+ 'after_widget'  => '</div>',
+ 'before_title'  => '<h3>',
+ 'after_title'   => '</h3>' ,
+ ) );
+
+register_sidebar( array(
+ 'name' => 'Footer Ads',
+ 'id' => 'footer-sec',
+ 'description' => 'Add footer Ads',
+ 'before_widget' => '<div class="ads-container">',
+ 'after_widget'  => '</div>',
+ 'before_title'  => '<h3>',
+ 'after_title'   => '</h3>' ,
+ ) );
+
+register_sidebar( array(
  'name' => 'Footer Menu 1',
  'id' => 'footer-menu-1',
  'description' => 'Add custom menu widgets footer menu',

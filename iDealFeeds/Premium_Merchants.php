@@ -1,9 +1,15 @@
-<?php
- include('Config.php');
+<?php //error_reporting(0); ?>
+<div class="home-merchant clearfix">
+	<ul>
+		<?php
+		try
+		{
+			include('Config.php');
+			include('Helper.php');
 
-$apikey = get_option('idealfeeds_apikey', $apikey);
+			$apikey = get_option('idealfeeds_apikey', $apikey);
 
-$ch = curl_init();
+			$ch = curl_init();
 $timeout = 0; // set to zero for no timeout
 curl_setopt ($ch, CURLOPT_URL, "$serviceUrl$apikey/GetMerchants/xml?Premium=true");
 curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -12,13 +18,25 @@ $xml_raw  = curl_exec($ch);
 $xml = simplexml_load_string($xml_raw);
 curl_close($ch);
 
-
+echo "<ul style='padding:15px;'>";
 foreach ($xml->Merchants->Merchant as $item) {
 
 	$MerchantLogoURL= $item->MerchantLogoURL;
 	$MerchantName =$item->MerchantName;
-    echo '<img src="'.$MerchantLogoURL.'" title="'.$MerchantName.'"/>';
+	echo '<li class="hvr-float-shadow"><a href="'.esc_url(home_url( "/" )).'stores/'.EncodeTextForURL($MerchantName).'"><img class="img-responsive" src="'.$MerchantLogoURL.'" alt="'.$MerchantName.'" title="'.$MerchantName.'"/></a></li>';
+ }
+echo "</ul>"; 
 }
-
+catch(Exception $e)
+{
+	echo 'No data is available.';
+}
 ?>
+</ul>
+</div>	
 
+
+
+			
+			
+			 
