@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 include('Config.php');
 include('Helper.php');
 $merchant=trim(DecodeTextForURL(get_query_var('merchant')));
@@ -22,7 +22,7 @@ curl_close($ch);
 
 $MerchantName = $xml->MerchantName;
 $DeepLinkUrl = $xml->DeepLinkUrl;
-$MerchantDescription = $xml->MerchantDescription;
+$MerchantDescription= $xml->MerchantDescription;
 $MerchantLogoURL = $xml->MerchantLogoURL;
 $PublicWebsiteURL = $xml->PublicWebsiteURL;
 //echo $DeepLinkUrl;
@@ -43,3 +43,9 @@ $PublicWebsiteURL = $xml->PublicWebsiteURL;
 		</div>
 	</div>    
 </div>
+<?php if(trim($MerchantDescription)!=""){?>
+<div class="details merchant-info">
+ <h3 ><a href="javascript:void(0);">About <?php echo $MerchantName; ?></a></h3>
+	 <p class="comment moretext"  textlenght="250"><?php echo $MerchantDescription; ?></p>	
+</div>
+<?php }?>

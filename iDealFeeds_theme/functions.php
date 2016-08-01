@@ -237,38 +237,36 @@ add_action( 'init', function() {
 
 
 
-function fn_DecodeTextForURL( $StrValue) {
-        $StrValue =urldecode($StrValue);
-        $StrValue=str_replace("§", "&",$StrValue);
-        //$StrValue=str_replace("~-", "^",$StrValue);
-        //$StrValue=str_replace("+", " ",$StrValue);
-        //$StrValue=str_replace("-", "&",$StrValue);
-        //$StrValue=str_replace("^", "-",$StrValue);
-        //$StrValue=str_replace("~", "\"",$StrValue);
-        //$StrValue=str_replace("`", "'",$StrValue);
-        //$StrValue=str_replace("®", ":",$StrValue);
-        //$StrValue=str_replace("†", "'",$StrValue);
-        //$StrValue=str_replace("^", "/",$StrValue);
-        //$StrValue=str_replace("‰", "%",$StrValue);
-        //$StrValue=str_replace("§", "?",$StrValue);
+function fn_DecodeTextForURL( $StrValue) { 
+        $StrValue =urldecode($StrValue);             
+        $StrValue=str_replace("~-", "-",$StrValue);
+        $StrValue=str_replace("-", " ",$StrValue);
+        $StrValue=str_replace("†", "&",$StrValue);
+        $StrValue=str_replace("♀", "/",$StrValue);
+        $StrValue=str_replace("~", "\"",$StrValue);      
+        $StrValue=str_replace("®", ":",$StrValue);
+        $StrValue=str_replace("`", "'",$StrValue);       
+        $StrValue=str_replace("ᵅ", "%",$StrValue);
+        $StrValue=str_replace("§", "?",$StrValue);
+        $StrValue=str_replace("◦", "+",$StrValue);
         return $StrValue;
 }
 
 add_filter( 'DecodeTextForURL', 'fn_DecodeTextForURL', 10, 1 ); // Where $priority is 10, $accepted_args is 2.
 
 
-function fn_EncodeTextForURL( $StrValue) {
-       $StrValue=str_replace("&", "§",$StrValue);
-        //$StrValue=str_replace("&", "-",$StrValue);
-        //$StrValue =str_replace("-", "~-",$StrValue);
-        //$StrValue=str_replace(" ", "+",$StrValue);        
-        //$StrValue=str_replace("\"", "~",$StrValue);
-        //$StrValue=str_replace("'", "†",$StrValue);
-        //$StrValue=str_replace("/", "^",$StrValue);
-        //$StrValue=str_replace(":", "®",$StrValue);
-        //$StrValue=str_replace("%", "‰",$StrValue);
-        //$StrValue=str_replace("?", "§",$StrValue);
-        $StrValue =urlencode($StrValue);
+function fn_EncodeTextForURL( $StrValue) {   
+        $StrValue=str_replace("-", "~-",$StrValue);
+        $StrValue=str_replace(" ", "-",$StrValue);
+        $StrValue=str_replace("&", "†",$StrValue);
+        $StrValue=str_replace("/", "♀",$StrValue);
+        $StrValue=str_replace("\"", "~",$StrValue);
+        $StrValue=str_replace("'", "`",$StrValue);
+        $StrValue=str_replace(":", "®",$StrValue);
+        $StrValue=str_replace("%", "ᵅ",$StrValue);
+        $StrValue=str_replace("?", "§",$StrValue);
+        $StrValue=str_replace("+", "◦",$StrValue);
+        
         return $StrValue;
 }
 

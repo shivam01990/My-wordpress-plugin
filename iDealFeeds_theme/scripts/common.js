@@ -1,3 +1,36 @@
+$(document).ready(function () {
+    var showChar = 150;
+    var ellipsestext = "...";
+    var moretext = "more";
+    var lesstext = "less";
+    $('.moretext').each(function () {
+        var content = $(this).html();
+        content = content.replace(/<br>/g, "©");
+        showChar = $(this).attr("textlenght");
+        if (content.length > showChar) {
+            var c = content.substr(0, showChar).replace(/©/g, "<br>");
+            var h = content.substr(showChar, content.length - showChar).replace(/©/g, "<br>");
+            var html = c + '<span class="moreellipses">' + ellipsestext + '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="more">' + moretext + '</a></span>';
+            $(this).html(html);
+        }
+        $(this).show();
+    });
+
+    $(".more").click(function () {
+        if ($(this).hasClass("less")) {
+            $(this).removeClass("less");
+            $(this).html(moretext);
+        } else {
+            $(this).addClass("less");
+            $(this).html(lesstext);
+        }
+        $(this).parent().prev().toggle();
+        $(this).prev().toggle();
+        return false;
+    });
+});
+
+
 function ShowCode(OfferID,affiliateUrl,CurrentPageURL)
 {	
 	window.open(CurrentPageURL + "?O=" + OfferID);
@@ -75,11 +108,13 @@ function replaceAll(oldStr, findStr, repStr) {
 }
 
 function EncodeTextForURL(StrValue) {
-    StrValue=  replaceAll(StrValue,"&", "§");
-    return encodeURI(StrValue);
+    StrValue=replaceAll(replaceAll(replaceAll(replaceAll(replaceAll(replaceAll( replaceAll(replaceAll(replaceAll(replaceAll(StrValue,"-", "~-")," ","-"),"&","†"),"/","♀"),"\"","~"),"'","`"),":","®"),"%","ᵅ"),"?","§"),"+","◦");
+    return StrValue;
 }
 
 function DecodeTextForURL(StrValue) {
-  StrValue= replaceAll(StrValue, "§", "&");
-  return decodeURI(StrValue);
+ StrValue=replaceAll(replaceAll(replaceAll(replaceAll(replaceAll(replaceAll( replaceAll(replaceAll(replaceAll(replaceAll(StrValue,"~-", "-"),"-"," "),"†","&"),"♀","/"),"~","\""),"`","'"),"®",":"),"ᵅ","%"),"§","?"),"◦","+");
+  return StrValue;
 }
+
+

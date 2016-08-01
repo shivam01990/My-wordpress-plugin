@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 include('Config.php');
 include('Helper.php');
 $category=trim(DecodeTextForURL(get_query_var('category')));

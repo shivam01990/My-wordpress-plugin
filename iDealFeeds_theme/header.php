@@ -1,11 +1,37 @@
+<?php
+$title=trim(apply_filters('DecodeTextForURL', get_query_var('search')));
+if($title=="")
+{
+  $title=trim(apply_filters('DecodeTextForURL', get_query_var('merchant')));
+}
+
+if($title=="")
+{
+  $title=trim(apply_filters('DecodeTextForURL', get_query_var('category')));
+  if(trim(apply_filters('DecodeTextForURL', get_query_var('sub_category')))!="")
+  {
+     $title=trim(apply_filters('DecodeTextForURL', get_query_var('sub_category')));
+  } 
+}
+
+if($title=="")
+{
+  $title=wp_title('',FALSE);
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
+  <title><?php echo $title; ?><?php if( $title!="") { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="cleartype" content="on" />
+  <link rel="icon" href="<?php bloginfo('siteurl'); ?>/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="<?php bloginfo('siteurl'); ?>/favicon.ico" type="image/x-icon" />
   <meta name="description" content="<?php bloginfo('description'); ?>" />
   <meta name="keywords" content="Voucher codes, vouchers, coupon codes, coupons, discount codes, discounts, deals, sale, offers, savings, cash back, retail, fashion, travel, Singapore" />
   <meta name="Culture" content="en-in" />

@@ -40,10 +40,9 @@ if(is_page('home'))
 ?>	
 <div class="container">
 <?php if ( is_active_sidebar( 'header-sec' ) ) : ?>      
-         <?php dynamic_sidebar('header-sec'); ?>      
+     <?php dynamic_sidebar('header-sec'); ?>      
 <?php endif; ?>  
 </div>
-
 <div class="home-content-container">
   <div class="container clearfix">
       <?php echo do_shortcode('[common_header]');?>  
@@ -74,7 +73,7 @@ if(is_page('home'))
     </div>
   </div>
 </div>
- <div class="container">
+<div class="container">
       <?php if ( is_active_sidebar( 'footer-sec' ) ) : ?>      
          <?php dynamic_sidebar('footer-sec'); ?>      
       <?php endif; ?>   

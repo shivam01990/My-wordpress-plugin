@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 include('Config.php');
 include('Helper.php');
 $merchant=trim(DecodeTextForURL(get_query_var('merchant')));
@@ -16,7 +16,6 @@ $OfferID=$_REQUEST['O'];
 
 
 <div class="right-col marchant-offer">
-
 <?php
 	try
 	{

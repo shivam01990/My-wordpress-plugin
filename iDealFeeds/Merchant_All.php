@@ -1,5 +1,4 @@
     
-<h2>All Stores</h2>
 <ul class="stotes-az clearfix">
 	<li><a href="#09">0-9</a></li>
 	<li><a href="#a">A</a></li>

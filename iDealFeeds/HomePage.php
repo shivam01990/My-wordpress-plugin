@@ -2,7 +2,7 @@
 <div class="row">
 
 	<?php	
-	//error_reporting(0);	
+	error_reporting(0);	
 	try
 	{
 		include('Config.php');
@@ -41,8 +41,8 @@
 				<div class="col-sm-4">
 					<?php if($DealType=="Coupon"){ ?>
 					<div class="coupon">
-						<div class="marchant-logo"> <img src="<?php echo $MerchantLogoURL ?>" alt="SmartBuyGlasses" class="img-responsive" /> </div>
-						<p class="offer-title"><?php echo $DealTitle ?></p>
+						<div class="marchant-logo"> <img src="<?php echo $MerchantLogoURL ?>" alt="SmartBuyGlasses" class="img-responsive center-block" /> </div>
+						<p class="offer-title"><?php echo  GetDescription($DealTitle,50);  ?></p>
 						<h5><?php echo GetDescription($DealDescription,60); ?> </h5>
 						<a onclick="ShowCode(<?php echo $DealId;?>,'<?php echo $DeepLinkUrl;?>','<?php echo esc_url( home_url( '/' ) );?>')" href="javascript:void(0);" class="btn show-coupon hvr-icon-wobble-horizontal">
 						<?php 
@@ -62,8 +62,8 @@
 					<?php }
 					else{ ?>
 					<div class="coupon activate-deal">
-						<div class="marchant-logo"> <img src="<?php echo $MerchantLogoURL ?>" alt="SmartBuyGlasses" class="img-responsive" /> </div>
-						<p class="offer-title"><?php echo $DealTitle ?></p>
+						<div class="marchant-logo"> <img src="<?php echo $MerchantLogoURL ?>" alt="SmartBuyGlasses" class="img-responsive center-block" /> </div>
+						<p class="offer-title"><?php echo GetDescription($DealTitle,50) ?></p>
 						<h5><?php echo GetDescription($DealDescription,60); ?></h5>
 						<a target="_blank" href="<?php echo $DeepLinkUrl;?>"  class="btn activate-deal hvr-icon-wobble-horizontal">Activate deal</a>
 						<p><a href="<?php echo esc_url(home_url( '/' )).'stores/'.EncodeTextForURL($MerchantName).'/' ?>" class="merchant-link">See all <?php echo $MerchantName ?> Coupons</a></p>

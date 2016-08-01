@@ -24,17 +24,7 @@
       <?php endif; ?>      
     </div>
   </div>
-  <div class="users-info">
-    <div class="container">
-      <div class="row">
-        <div class="icontags"><span class="icon"></span><span class="info">Voucher Codes</span></div>
-        <div class="icontags"><span class="icon cart"></span><span class="info">Retailers</span></div>
-        <div class="icontags"><span class="icon user"></span><span class="info">Members</span></div>
-        <div class="icontags"><span class="icon mobile"></span><span class="info">App Downloads</span></div>
-        <div class="icontags"><span class="icon fb"></span><span class="info">Fans on Facebook</span></div>
-      </div>
-    </div>
-  </div>
+
   <div class="copyright">
     <p>&copy; <?php echo date("Y");?> <?php bloginfo( 'name' ); ?></p>
   </div>
@@ -90,24 +80,7 @@
 
   
   </script> 
-  <script>
-  
-  $(document).ready(function() {
-
-    $("#home-banner").owlCarousel({
-
-      navigation : true,
-      slideSpeed : 300,
-      paginationSpeed : 400,
-      singleItem:true
-
-
-    });
-
-  });
-  
-  
-  </script>   
+ 
   <!--End Js Section-->
 </form>
 </body>
