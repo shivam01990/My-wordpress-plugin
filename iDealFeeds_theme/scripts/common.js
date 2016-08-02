@@ -108,12 +108,12 @@ function replaceAll(oldStr, findStr, repStr) {
 }
 
 function EncodeTextForURL(StrValue) {
-    StrValue=replaceAll(replaceAll(replaceAll(replaceAll(replaceAll(replaceAll( replaceAll(replaceAll(replaceAll(replaceAll(StrValue,"-", "~-")," ","-"),"&","†"),"/","♀"),"\"","~"),"'","`"),":","®"),"%","ᵅ"),"?","§"),"+","◦");
+    StrValue=replaceAll(replaceAll(replaceAll(replaceAll(replaceAll( replaceAll(replaceAll(replaceAll(replaceAll(StrValue,"-", "~-")," ","-"),"/","♀"),"\"","~"),"'","`"),":","®"),"%","ᵅ"),"?","§"),"+","◦");
     return StrValue;
 }
 
 function DecodeTextForURL(StrValue) {
- StrValue=replaceAll(replaceAll(replaceAll(replaceAll(replaceAll(replaceAll( replaceAll(replaceAll(replaceAll(replaceAll(StrValue,"~-", "-"),"-"," "),"†","&"),"♀","/"),"~","\""),"`","'"),"®",":"),"ᵅ","%"),"§","?"),"◦","+");
+ StrValue=replaceAll(replaceAll(replaceAll(replaceAll(replaceAll( replaceAll(replaceAll(replaceAll(replaceAll(StrValue,"~-", "-"),"-"," "),"♀","/"),"~","\""),"`","'"),"®",":"),"ᵅ","%"),"§","?"),"◦","+");
   return StrValue;
 }
 

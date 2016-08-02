@@ -30,8 +30,7 @@ if($title=="")
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="cleartype" content="on" />
-  <link rel="icon" href="<?php bloginfo('siteurl'); ?>/favicon.ico" type="image/x-icon" />
-  <link rel="shortcut icon" href="<?php bloginfo('siteurl'); ?>/favicon.ico" type="image/x-icon" />
+  <?php echo apply_filters('site_icon_meta_tags',null); ?> 
   <meta name="description" content="<?php bloginfo('description'); ?>" />
   <meta name="keywords" content="Voucher codes, vouchers, coupon codes, coupons, discount codes, discounts, deals, sale, offers, savings, cash back, retail, fashion, travel, Singapore" />
   <meta name="Culture" content="en-in" />

@@ -241,7 +241,7 @@ function fn_DecodeTextForURL( $StrValue) {
         $StrValue =urldecode($StrValue);             
         $StrValue=str_replace("~-", "-",$StrValue);
         $StrValue=str_replace("-", " ",$StrValue);
-        $StrValue=str_replace("†", "&",$StrValue);
+        //$StrValue=str_replace("†", "&",$StrValue);
         $StrValue=str_replace("♀", "/",$StrValue);
         $StrValue=str_replace("~", "\"",$StrValue);      
         $StrValue=str_replace("®", ":",$StrValue);
@@ -258,7 +258,7 @@ add_filter( 'DecodeTextForURL', 'fn_DecodeTextForURL', 10, 1 ); // Where $priori
 function fn_EncodeTextForURL( $StrValue) {   
         $StrValue=str_replace("-", "~-",$StrValue);
         $StrValue=str_replace(" ", "-",$StrValue);
-        $StrValue=str_replace("&", "†",$StrValue);
+        //$StrValue=str_replace("&", "†",$StrValue);
         $StrValue=str_replace("/", "♀",$StrValue);
         $StrValue=str_replace("\"", "~",$StrValue);
         $StrValue=str_replace("'", "`",$StrValue);
@@ -302,5 +302,23 @@ function GetiDealFeedsIcon()
 }
 
 add_filter( 'iDealfeedsIcon', 'GetiDealFeedsIcon');
+
+
+
+ 
+function prefix_custom_site_icon_tag( $meta_tags ) {
+    
+   $meta_tag=' <link rel="icon" href="'.esc_url( get_template_directory_uri()).'/favicon.ico" type="image/x-icon" />';
+   if(function_exists('has_site_icon'))
+   {
+    if(has_site_icon())
+    { 
+      $meta_tag = sprintf( '<link rel="icon" href="%s" sizes="64x64" />', esc_url( get_site_icon_url( null, 64 ) ) );
+    }   
+   } 
+   
+   return $meta_tag;
+}
+add_filter( 'site_icon_meta_tags', 'prefix_custom_site_icon_tag' );
 
 ?>

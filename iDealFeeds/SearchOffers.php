@@ -20,7 +20,7 @@ $apikey = get_option('idealfeeds_apikey', $apikey);
 
 $ch = curl_init();
 $timeout = 0; // set to zero for no timeout
-$tempserviceURL= $serviceUrl.$apikey.'/SeachRoute/xml?SearchText='.EncodeTextForURL($search);
+$tempserviceURL= $serviceUrl.$apikey.'/SeachRoute/xml?SearchText='.urlencode($search);
 curl_setopt ($ch, CURLOPT_URL, $tempserviceURL);
 curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
@@ -62,7 +62,7 @@ if($SearchType!='4')
 	{		
 		$ch = curl_init();
 		$timeout = 0; // set to zero for no timeout
-		$tempserviceURL= $serviceUrl.$apikey.'/GetDeals/xml?SearchText='.EncodeTextForURL($search).'&PageNo='.$page_no.'&PageSize=10&SortBy=STARTDATE-DESC';
+		$tempserviceURL= $serviceUrl.$apikey.'/GetDeals/xml?SearchText='.urlencode($search).'&PageNo='.$page_no.'&PageSize=10&SortBy=STARTDATE-DESC';
 		curl_setopt ($ch, CURLOPT_URL, $tempserviceURL);
 		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);

@@ -16,7 +16,7 @@ if (!function_exists('EncodeTextForURL')) {
 	function EncodeTextForURL($StrValue) {
 		$StrValue=str_replace("-", "~-",$StrValue);
         $StrValue=str_replace(" ", "-",$StrValue);
-        $StrValue=str_replace("&", "†",$StrValue);
+        //$StrValue=str_replace("&", "†",$StrValue);
         $StrValue=str_replace("/", "♀",$StrValue);
         $StrValue=str_replace("\"", "~",$StrValue);
         $StrValue=str_replace("'", "`",$StrValue);
@@ -35,7 +35,7 @@ if (!function_exists('DecodeTextForURL')) {
 		$StrValue =urldecode($StrValue);        
         $StrValue=str_replace("~-", "-",$StrValue);
         $StrValue=str_replace("-", " ",$StrValue);
-        $StrValue=str_replace("†", "&",$StrValue);
+        //$StrValue=str_replace("†", "&",$StrValue);
         $StrValue=str_replace("♀", "/",$StrValue);
         $StrValue=str_replace("~", "\"",$StrValue);      
         $StrValue=str_replace("®", ":",$StrValue);

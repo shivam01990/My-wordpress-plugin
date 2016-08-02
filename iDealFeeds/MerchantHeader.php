@@ -11,7 +11,7 @@ $apikey = get_option('idealfeeds_apikey', $apikey);
 
 $ch = curl_init();
 $timeout = 0; // set to zero for no timeout
-$tempserviceURL= $serviceUrl.$apikey.'/GetMerchantDetails/xml?MerchantName='.EncodeTextForURL($merchant);
+$tempserviceURL= $serviceUrl.$apikey.'/GetMerchantDetails/xml?MerchantName='.urlencode($merchant);
 curl_setopt ($ch, CURLOPT_URL, $tempserviceURL);
 curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);

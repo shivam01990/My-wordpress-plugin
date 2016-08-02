@@ -43,7 +43,7 @@ else
 
 		$ch = curl_init();
 		$timeout = 0; // set to zero for no timeout
-		$tempserviceURL= $serviceUrl.$apikey.'/GetDeals/xml?Category='.EncodeTextForURL($category_param).'&PageNo='.$page_no.'&PageSize=10&SortBy=STARTDATE-DESC';
+		$tempserviceURL= $serviceUrl.$apikey.'/GetDeals/xml?Category='.urlencode($category_param).'&PageNo='.$page_no.'&PageSize=10&SortBy=STARTDATE-DESC';
 		curl_setopt ($ch, CURLOPT_URL, $tempserviceURL);
 		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
