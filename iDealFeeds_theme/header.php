@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 $title=trim(apply_filters('DecodeTextForURL', get_query_var('search')));
 if($title=="")
 {
@@ -30,11 +31,10 @@ if($title=="")
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="cleartype" content="on" />
-  <?php echo apply_filters('site_icon_meta_tags',null); ?> 
+  <?php echo apply_filters('iDealfeedsFaviconIcon',''); ?> 
   <meta name="description" content="<?php bloginfo('description'); ?>" />
   <meta name="keywords" content="Voucher codes, vouchers, coupon codes, coupons, discount codes, discounts, deals, sale, offers, savings, cash back, retail, fashion, travel, Singapore" />
   <meta name="Culture" content="en-in" />
-  <meta name="DisplayName" content="VoucherCodes" />
   <!-- Bootstrap core CSS -->
   
   <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/styles/bootstrap.min.css" rel="stylesheet" />
@@ -74,21 +74,23 @@ if($title=="")
             <div class="row">              
               <div class="header">
                 <div class="container">
-                  <div class="search-block-header">
                     <?php 
                       if(!is_page('home'))
                        { ?>
+                  <div class="search-block-header">
+                  
                     <div class="form-inline ">                      
                       <div class="form-group">                      
                       <input type="text" id='txtiDealFeedsSearch' class="form-control" value="<?php echo trim(apply_filters('DecodeTextForURL', get_query_var('search'))); ?>"  placeholder="Type in a Store e.g. foodpanda, Expedia">
                       </div>
                       <button id="btnSearch" type="submit" class="btn btn-search" onclick="return SearchText();">SEARCH</button>                     
                     </div> 
-                     <?php               
-                      } ?>
+                     
                   </div>
+                  <?php               
+                      } ?>
                   <ul class="nav mega navbar-nav  float-right">                    
-                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>/stores">All Stores</a></li>
+                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>stores">All Stores</a></li>
                     <li class="dropdown yamm-fw"><a href="#" class="all-category-link" data-toggle="dropdown">All Categories <span class="caret"></span></a><!--Category-->
                       <div class="mega-content">
                         <?php echo do_shortcode('[category_menu]');     ?>

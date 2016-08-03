@@ -3,6 +3,7 @@
     <div id="Header1_DivCategories" class="clearfix">
 
      <?php 
+     error_reporting(0);  
       include('Config.php');
       include('Helper.php');
 

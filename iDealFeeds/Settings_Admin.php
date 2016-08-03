@@ -6,7 +6,10 @@ include('Common_Admin.php');
 <?php 
 $apikey = get_option('idealfeeds_apikey', $apikey);
 
+$access='';
+if ( isset( $_POST['access'] ) ) {
 $access=trim($_POST['access']);
+}
 
 
 if($access=="Y"){	

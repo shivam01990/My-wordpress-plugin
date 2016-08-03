@@ -3,7 +3,7 @@
     Plugin Name: iDealFeeds
     Plugin URI: http://www.idealfeeds.com
     Description: Setup iDealfeeds credencials
-    Author: Shivam Srivastava
+    Author: iDealFeeds
     Version: 1.0
     Author URI: http://www.idealfeeds.com
     */
