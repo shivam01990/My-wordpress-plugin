@@ -1,4 +1,4 @@
-  <div class="top10-coupon">   
+  <div class="top10-coupon"> 
 
   <?php
   try

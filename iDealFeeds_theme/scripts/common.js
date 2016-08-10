@@ -117,4 +117,35 @@ function DecodeTextForURL(StrValue) {
   return StrValue;
 }
 
+var copyvchcodeeobj = null;
+
+$(document).ready(function () {   
+    if (copyvchcodeeobj == null) {
+        if (document.getElementById("ACopyVoucherCode") != null) {
+            copyvchcodeeobj = GetClipboardObj();
+            copyvchcodeeobj.on("ready", function (readyEvent) {
+                copyvchcodeeobj.on("aftercopy", function (event) {
+                    document.getElementById("ACopyVoucherCode").innerHTML = "Copied";
+                });
+            });
+        }
+    }
+});
+
+function CloseModelPopUp() {
+    $('#DivViewVoucherCode').modal('hide')
+}
+
+function GetClipboardObj() {
+    var clipboardobj = new ZeroClipboard(document.getElementById("ACopyVoucherCode"), {
+        moviePath: template_directory + "/scripts/ZeroClipboard.swf",  // URL to movie
+        trustedOrigins: null, //null Page origins that the SWF should trust (single string or array of strings)
+        hoverClass: "",   // The class used to hover over the object
+        activeClass: "",  // The class used to set object active
+        allowScriptAccess: "always", //sameDomain SWF outbound scripting policy
+        useNoCache: true,   // Include a nocache query parameter on requests for the SWF
+        forceHandCursor: true   //false Forcibly set the hand cursor ("pointer") for all glued elements
+    });
+    return clipboardobj;
+}
 

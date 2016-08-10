@@ -1,31 +1,29 @@
-<?php 
-    /*
-    Plugin Name: iDealFeeds
-    Plugin URI: http://www.idealfeeds.com
-    Description: Setup iDealfeeds credencials
-    Author: iDealFeeds
-    Version: 1.0
-    Author URI: http://www.idealfeeds.com
-    */
-
-
-
-
-    function iDealFeeds_actions() { 
-        add_menu_page("iDealfeeds","iDealfeeds", 1, "iDealFeeds_admin", "iDealFeeds_admin");
-        add_submenu_page("iDealFeeds_admin","","Settings",1, "iDealFeeds_admin", "iDealFeeds_admin");
-        add_submenu_page("iDealFeeds_admin", "Shortcodes","Shortcodes", 1, "iDealFeeds_shortcodes_admin", "iDealFeeds_shortcodes_admin");
+<?php
+/*
+Plugin Name: iDealFeeds
+Plugin URI: http://www.idealfeeds.com
+Description: iDealFeeds WordPress theme is a definite answer to your desire of having your own, fully functional coupon code site. iDealFeeds WordPress theme as well as highly advanced WP Plugin build highly creative combination that ensures not only the coupon code website, but also would play a critical role in attracting and retaining customers.
+Author: iDealFeeds
+Version: 1.0
+Author URI: http://www.idealfeeds.com
+*/
+?><?php function iDealFeeds_actions() { 
+        add_menu_page("iDealfeeds","iDealfeeds", 'manage_options', "iDealFeeds_admin", "iDealFeeds_admin");
+        add_submenu_page("iDealFeeds_admin","","Settings",'manage_options', "iDealFeeds_admin", "iDealFeeds_admin");
+        add_submenu_page("iDealFeeds_admin", "Shortcodes","Shortcodes", 'manage_options', "iDealFeeds_shortcodes_admin", "iDealFeeds_shortcodes_admin");
     }
 
     function iDealFeeds_admin(){
         include('Settings_Admin.php');
     }
+   
 
     function iDealFeeds_shortcodes_admin() {
         include('Shortcodes_Admin.php');
     }
 
     add_action('admin_menu', 'iDealFeeds_actions');
+
 
     //**********Short Codes Definition***********//
 
@@ -77,11 +75,10 @@
         $rType = requireToVar('TopExclusiveOffers.php');  
         wp_cache_set( 'top_exclusive_offers', $rType );    
         }    
-        return  $rType;
-       
+        return  $rType;       
      }
 
-     add_shortcode('top_exclusive_offers', 'iDealFeeds_top_exclusive_offers_shortcode');
+    add_shortcode('top_exclusive_offers', 'iDealFeeds_top_exclusive_offers_shortcode');
 
     function iDealFeeds_top_expiring_offers_shortcode(){
         $rType =  wp_cache_get('top_expiring_offers');
@@ -131,7 +128,7 @@
        if ( false === $rType  ) {
          $rType = requireToVar('CategoryMenu.php'); 
          wp_cache_set( 'category_menu', $rType );
-       }    
+       }  
 
         return  $rType;       
      }
@@ -149,15 +146,17 @@
      }
      add_shortcode('top_categories', 'iDealFeeds_top_categories_shortcode');
 
+     function iDealFeeds_modal_popup_shortcode(){
+        $rType = requireToVar('ModalPopup.php');      
+        return  $rType;       
+     }
+     add_shortcode('modal_popup', 'iDealFeeds_modal_popup_shortcode');
+
     //**********End short Codes Definition***********//
       
-
-
     function requireToVar($file){
     ob_start();
     require($file);
     return ob_get_clean();
 }
-    ?>
-
-    
+?>

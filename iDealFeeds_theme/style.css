@@ -2177,6 +2177,14 @@ header.smaller  .search-block-header{ top:5px}
 	margin: 0;
 	font-weight:300
 }
+
+.discount-modal .model-offertitle {
+    color: #e96565;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0;
+}
+
 .modal-newsletter {
 	background: #014c7c;
 	padding: 20px 20px 30px 20px;
@@ -2238,8 +2246,7 @@ color:#fff
 .copycode-aria .copycode-btn:hover {
 	background-color: #4ca547
 }
-.copycode-block .btn-arrow {
-	background: url(img/btn-arrow-withe.png) no-repeat;
+.copycode-block .btn-arrow {	
 	width: 10px;
 	height: 15px;
 	display: inline-block;

@@ -32,6 +32,7 @@
 </div>
   <script type="text/javascript">
   var root ='<?php echo esc_url(home_url()); ?>'
+  var template_directory = '<?php echo esc_url(get_template_directory_uri()); ?>'
   </script>
   <!--Js Section--><!-- Bootstrap core JavaScript
   ================================================== --><!-- Placed at the end of the document so the pages load faster -->
@@ -39,49 +40,29 @@
   <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/bootstrap.min.js"></script> 
   <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/common.js"></script>
   <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/responsive-tabs.js"></script> 
+  <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/ZeroClipboard.min.js"></script> 
 
   <script>$('.activate-deal').tooltip('hide')</script> 
   <script type="text/javascript">(function($){fakewaffle.responsiveTabs(['xs','sm']);})(jQuery);</script> 
   <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/classie.js"></script> 
   <script>var cuo="/";function init(){window.addEventListener('scroll',function(e){var distanceY=window.pageYOffset||document.documentElement.scrollTop,shrinkOn=300,header=document.querySelector("header");if(distanceY>shrinkOn){classie.add(header,"smaller");}else{if(classie.has(header,"smaller")){classie.remove(header,"smaller");}}});}
-  window.onload=init();$(document).ready(function(){$(".the-summit").click(function(){$(".sub-nav").toggle();$("header").toggleClass('submenu');$("header.smaller").children('sub-nav').addClass('aaa');});});$(".dropdown-toggle").click(function(e){$(".mega-content").fadeToggle();});</script><script type="text/javascript" src="https://connect.facebook.net/en_US/all.js"></script>
+  window.onload=init();$(document).ready(function(){$(".the-summit").click(function(){$(".sub-nav").toggle();$("header").toggleClass('submenu');$("header.smaller").children('sub-nav').addClass('aaa');});});$(".dropdown-toggle").click(function(e){$(".mega-content").fadeToggle();});</script>
 
  
   <script type="text/javascript" src="<?php echo esc_url( get_template_directory_uri() ); ?>/scripts/owl.carousel.js"></script> 
   <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.18/dist/jquery.flip.min.js"></script> 
-  
   <script>
-  $(document).ready(function() {
-
-    $("#owl-demo").owlCarousel({
-
-      autoplay:false,
-      itemsCustom : [
-      [0, 2],
-      [600, 5]
-      ],
-    });
-  });
-  
-  </script> 
-  <script>
-
   $(".item").flip({
-
     trigger: 'hover',
     reverse: false,
-
   });
-
-
   $(document).on('click', '.yamm .dropdown-menu', function(e) {
     e.stopPropagation()
-  })
-
-  
+  });  
   </script> 
- 
+ <?php echo do_shortcode('[modal_popup]'); ?>
   <!--End Js Section-->
+ 
 </form>
 </body>
 </html>
